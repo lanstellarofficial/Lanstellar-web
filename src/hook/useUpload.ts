@@ -84,12 +84,17 @@ export const useUpload = () => {
         console.log("Documents uploaded successfully!");
         // Invalidate user query to refetch user data
         queryClient.invalidateQueries({ queryKey: ["currentUser"] });
-        toast.success("Documents uploaded successfully");
         navigate("/dashboard");
+      } else {
+        // API returned success: false, treat as error
+        console.error("Upload failed:", data.message);
+        toast.error(data.message || "Failed to upload documents");
       }
     },
     onError(error) {
-      console.log("Upload error:", error);
+      console.error("Upload error:", error);
+      const errorMessage = error instanceof Error ? error.message : "Upload failed";
+      toast.error(errorMessage);
     },
   });
 

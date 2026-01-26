@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useSignup } from "@/hook/useSignup";
+import { Eye, EyeOff } from "lucide-react";
 
 interface SignupFormData {
   email: string;
@@ -81,9 +82,8 @@ const RegisterPage = () => {
                   },
                 })}
                 placeholder="Enter your email"
-                className={`bg-[#F5F5F5] border rounded-[10px] text-[#1A1A1A] placeholder:text-[#CBCBCB] shadow-none p-3 h-12 outline-none ${
-                  errors.email ? "border-red-500" : "border-[#F1F1F1]"
-                }`}
+                className={`bg-[#F5F5F5] border rounded-[10px] text-[#1A1A1A] placeholder:text-[#CBCBCB] shadow-none p-3 h-12 outline-none ${errors.email ? "border-red-500" : "border-[#F1F1F1]"
+                  }`}
               />
               {errors.email && (
                 <p className="text-red-500 text-xs mt-1">
@@ -113,16 +113,15 @@ const RegisterPage = () => {
                     },
                   })}
                   placeholder="Enter password"
-                  className={`bg-[#F5F5F5] border text-sm rounded-[10px] text-[#1A1A21] placeholder:text-[#CBCBCB] p-3 h-12 w-full outline-none ${
-                    errors.password ? "border-red-500" : "border-[#F1F1F1]"
-                  }`}
+                  className={`bg-[#F5F5F5] border text-sm rounded-[10px] text-[#1A1A21] placeholder:text-[#CBCBCB] p-3 h-12 w-full outline-none ${errors.password ? "border-red-500" : "border-[#F1F1F1]"
+                    }`}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 border border-[#F4F3F7] bg-[#FFFFFF] rounded-[10px] text-[#CBCBCB] text-sm px-2"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#CBCBCB] hover:text-[#8C94A6] transition-colors"
                 >
-                  {showPassword ? "hide" : "show"}
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
               </div>
               {errors.password && (
@@ -145,18 +144,17 @@ const RegisterPage = () => {
                       value === password || "Passwords do not match",
                   })}
                   placeholder="Confirm your password"
-                  className={`bg-[#F5F5F5] border text-sm rounded-[10px] text-[#1A1A21] placeholder:text-[#CBCBCB] p-3 h-12 w-full outline-none ${
-                    errors.confirmPassword
+                  className={`bg-[#F5F5F5] border text-sm rounded-[10px] text-[#1A1A21] placeholder:text-[#CBCBCB] p-3 h-12 w-full outline-none ${errors.confirmPassword
                       ? "border-red-500"
                       : "border-[#F1F1F1]"
-                  }`}
+                    }`}
                 />
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 border border-[#F4F3F7] bg-[#FFFFFF] rounded-[10px] text-[#CBCBCB] text-sm px-2"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#CBCBCB] hover:text-[#8C94A6] transition-colors"
                 >
-                  {showConfirmPassword ? "hide" : "show"}
+                  {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
               </div>
               {errors.confirmPassword && (

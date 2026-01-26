@@ -38,6 +38,63 @@ interface Document {
   required: boolean;
 }
 
+const countries = [
+  { code: "us", name: "United States", flag: "🇺🇸" },
+  { code: "gb", name: "United Kingdom", flag: "🇬🇧" },
+  { code: "ca", name: "Canada", flag: "🇨🇦" },
+  { code: "ng", name: "Nigeria", flag: "🇳🇬" },
+  { code: "gh", name: "Ghana", flag: "🇬🇭" },
+  { code: "ke", name: "Kenya", flag: "🇰🇪" },
+  { code: "za", name: "South Africa", flag: "🇿🇦" },
+  { code: "eg", name: "Egypt", flag: "🇪🇬" },
+  { code: "ma", name: "Morocco", flag: "🇲🇦" },
+  { code: "tz", name: "Tanzania", flag: "🇹🇿" },
+  { code: "ug", name: "Uganda", flag: "🇺🇬" },
+  { code: "rw", name: "Rwanda", flag: "🇷🇼" },
+  { code: "et", name: "Ethiopia", flag: "🇪🇹" },
+  { code: "sn", name: "Senegal", flag: "🇸🇳" },
+  { code: "ci", name: "Côte d'Ivoire", flag: "🇨🇮" },
+  { code: "cm", name: "Cameroon", flag: "🇨🇲" },
+  { code: "de", name: "Germany", flag: "🇩🇪" },
+  { code: "fr", name: "France", flag: "🇫🇷" },
+  { code: "es", name: "Spain", flag: "🇪🇸" },
+  { code: "it", name: "Italy", flag: "🇮🇹" },
+  { code: "nl", name: "Netherlands", flag: "🇳🇱" },
+  { code: "be", name: "Belgium", flag: "🇧🇪" },
+  { code: "ch", name: "Switzerland", flag: "🇨🇭" },
+  { code: "at", name: "Austria", flag: "🇦🇹" },
+  { code: "se", name: "Sweden", flag: "🇸🇪" },
+  { code: "no", name: "Norway", flag: "🇳🇴" },
+  { code: "dk", name: "Denmark", flag: "🇩🇰" },
+  { code: "fi", name: "Finland", flag: "🇫🇮" },
+  { code: "pt", name: "Portugal", flag: "🇵🇹" },
+  { code: "ie", name: "Ireland", flag: "🇮🇪" },
+  { code: "pl", name: "Poland", flag: "🇵🇱" },
+  { code: "au", name: "Australia", flag: "🇦🇺" },
+  { code: "nz", name: "New Zealand", flag: "🇳🇿" },
+  { code: "jp", name: "Japan", flag: "🇯🇵" },
+  { code: "cn", name: "China", flag: "🇨🇳" },
+  { code: "in", name: "India", flag: "🇮🇳" },
+  { code: "sg", name: "Singapore", flag: "🇸🇬" },
+  { code: "hk", name: "Hong Kong", flag: "🇭🇰" },
+  { code: "kr", name: "South Korea", flag: "🇰🇷" },
+  { code: "my", name: "Malaysia", flag: "🇲🇾" },
+  { code: "th", name: "Thailand", flag: "🇹🇭" },
+  { code: "ph", name: "Philippines", flag: "🇵🇭" },
+  { code: "id", name: "Indonesia", flag: "🇮🇩" },
+  { code: "vn", name: "Vietnam", flag: "🇻🇳" },
+  { code: "ae", name: "United Arab Emirates", flag: "🇦🇪" },
+  { code: "sa", name: "Saudi Arabia", flag: "🇸🇦" },
+  { code: "il", name: "Israel", flag: "🇮🇱" },
+  { code: "tr", name: "Turkey", flag: "🇹🇷" },
+  { code: "br", name: "Brazil", flag: "🇧🇷" },
+  { code: "mx", name: "Mexico", flag: "🇲🇽" },
+  { code: "ar", name: "Argentina", flag: "🇦🇷" },
+  { code: "co", name: "Colombia", flag: "🇨🇴" },
+  { code: "cl", name: "Chile", flag: "🇨🇱" },
+  { code: "pe", name: "Peru", flag: "🇵🇪" },
+];
+
 export default function Informations() {
   const { user, isLoadingUser } = useCurrentUser();
   // Don't redirect for step 1 (intermediate save), redirect for final submission
@@ -223,18 +280,16 @@ export default function Informations() {
               onClick={() => handleStepClick(1)}
             >
               <div
-                className={`w-6 h-6 rounded-full flex items-center justify-center text-sm ${
-                  currentStep >= 1
+                className={`w-6 h-6 rounded-full flex items-center justify-center text-sm ${currentStep >= 1
                     ? "bg-[#DACBEB] text-[#5809B0]"
                     : "bg-[#F4F3F7] text-[#8C94A6]"
-                }`}
+                  }`}
               >
                 1
               </div>
               <span
-                className={`text-sm ${
-                  currentStep >= 1 ? "text-[#5809B0]" : "text-[#8C94A6]"
-                }`}
+                className={`text-sm ${currentStep >= 1 ? "text-[#5809B0]" : "text-[#8C94A6]"
+                  }`}
               >
                 Company info
               </span>
@@ -245,18 +300,16 @@ export default function Informations() {
               onClick={() => handleStepClick(2)}
             >
               <div
-                className={`w-6 h-6 rounded-full flex items-center justify-center text-sm ${
-                  currentStep >= 2
+                className={`w-6 h-6 rounded-full flex items-center justify-center text-sm ${currentStep >= 2
                     ? "bg-purple-600 text-white"
                     : "bg-gray-200 text-gray-600"
-                }`}
+                  }`}
               >
                 2
               </div>
               <span
-                className={`text-sm ${
-                  currentStep >= 2 ? "text-purple-600" : "text-gray-500"
-                }`}
+                className={`text-sm ${currentStep >= 2 ? "text-purple-600" : "text-gray-500"
+                  }`}
               >
                 Upload documents
               </span>
@@ -439,12 +492,14 @@ export default function Informations() {
                           <SelectValue placeholder="Select your location" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="us">United States</SelectItem>
-                          <SelectItem value="uk">United Kingdom</SelectItem>
-                          <SelectItem value="ca">Canada</SelectItem>
-                          <SelectItem value="ng">Nigeria</SelectItem>
-                          <SelectItem value="gh">Ghana</SelectItem>
-                          <SelectItem value="ke">Kenya</SelectItem>
+                          {countries.map((country) => (
+                            <SelectItem key={country.code} value={country.code}>
+                              <span className="flex items-center gap-2">
+                                <span>{country.flag}</span>
+                                <span>{country.name}</span>
+                              </span>
+                            </SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     )}
@@ -667,12 +722,14 @@ export default function Informations() {
                           <SelectValue placeholder="Select your location" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="us">United States</SelectItem>
-                          <SelectItem value="uk">United Kingdom</SelectItem>
-                          <SelectItem value="ca">Canada</SelectItem>
-                          <SelectItem value="ng">Nigeria</SelectItem>
-                          <SelectItem value="gh">Ghana</SelectItem>
-                          <SelectItem value="ke">Kenya</SelectItem>
+                          {countries.map((country) => (
+                            <SelectItem key={country.code} value={country.code}>
+                              <span className="flex items-center gap-2">
+                                <span>{country.flag}</span>
+                                <span>{country.name}</span>
+                              </span>
+                            </SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     )}

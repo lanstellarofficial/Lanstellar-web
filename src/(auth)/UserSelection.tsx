@@ -122,7 +122,7 @@ const UserTypePage = () => {
             <Button
               onClick={handleContinue}
               disabled={!selected}
-              className={`w-full sm:w-auto bg-gradient-to-br from-[#439EFF] to-[#5B1E9F] text-white text-sm py-2 px-6 rounded-md font-medium hover:opacity-90 transition-opacity ${
+              className={`cursor-pointer w-full sm:w-auto bg-gradient-to-br from-[#439EFF] to-[#5B1E9F] text-white text-sm py-2 px-6 rounded-md font-medium hover:opacity-90 transition-opacity ${
                 !selected ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >
