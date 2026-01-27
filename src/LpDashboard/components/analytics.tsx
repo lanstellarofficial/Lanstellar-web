@@ -70,13 +70,27 @@ const Analytics = () => {
     });
   }, [liquidity]);
 
-  // Get the nearest end date
+  // Get positions that have already matured (end date has passed)
+  const maturedPositions = useMemo(() => {
+    const now = new Date();
+    return positionEndDates.filter((p) => p.endDate <= now);
+  }, [positionEndDates]);
+
+  // Check if user has any position that has matured
+  const hasMaturedPosition = maturedPositions.length > 0;
+
+  // Get the nearest upcoming end date (future dates only, sorted by closest first)
   const nearestEndDate = useMemo(() => {
     if (!positionEndDates.length) return null;
-    const sortedDates = positionEndDates
-      .filter((p) => p.endDate > new Date())
+    const now = new Date();
+
+    // Filter for future dates only and sort by closest first
+    const upcomingPositions = positionEndDates
+      .filter((p) => p.endDate > now)
       .sort((a, b) => a.endDate.getTime() - b.endDate.getTime());
-    return sortedDates[0]?.endDate || null;
+
+    // Return the nearest future end date
+    return upcomingPositions[0]?.endDate || null;
   }, [positionEndDates]);
 
   // Format date for display
@@ -421,13 +435,12 @@ const Analytics = () => {
             <div className="text-[11px] text-white/80">
               {totalLiquidity > 0
                 ? `Expected: $${totalExpectedROI?.toLocaleString(undefined, {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  })} (${
-                    averageInterest > 0
-                      ? averageInterest.toFixed(1)
-                      : BASE_ROI_PER_YEAR
-                  }% APY × ${averageDuration.toFixed(0)}mo)`
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })} (${averageInterest > 0
+                  ? averageInterest.toFixed(1)
+                  : BASE_ROI_PER_YEAR
+                }% APY × ${averageDuration.toFixed(0)}mo)`
                 : "Add liquidity to start earning"}
             </div>
             {nearestEndDate && (
@@ -463,12 +476,22 @@ const Analytics = () => {
           <CardContent className="pt-0 flex items-center justify-between">
             <div className="text-[11px] text-[#8C94A6]">
               {liquidity?.length > 0
-                ? `${liquidity?.length} active position${
-                    liquidity?.length > 1 ? "s" : ""
-                  }`
+                ? `${liquidity?.length} active position${liquidity?.length > 1 ? "s" : ""
+                }`
                 : "No liquidity added yet"}
             </div>
-            <button className="px-4 py-2 rounded-[8px] bg-[#504CF6] text-white text-[11px] cursor-pointer hover:bg-[#504CF6]/90">
+            <button
+              disabled={!hasMaturedPosition}
+              className={`px-4 py-2 rounded-[8px] text-[11px] transition-all ${hasMaturedPosition
+                  ? "bg-[#504CF6] text-white cursor-pointer hover:bg-[#504CF6]/90"
+                  : "bg-[#E4E3EC] text-[#8C94A6] cursor-not-allowed"
+                }`}
+              title={
+                hasMaturedPosition
+                  ? "Withdraw your matured liquidity"
+                  : "Withdraw available after maturity date"
+              }
+            >
               Withdraw Liquidity
             </button>
           </CardContent>
@@ -502,13 +525,11 @@ const Analytics = () => {
           <CardContent className="pt-0">
             <div className="text-[11px] text-[#8C94A6]">
               {totalLiquidity > 0
-                ? `${
-                    averageInterest > 0
-                      ? averageInterest.toFixed(1)
-                      : BASE_ROI_PER_YEAR
-                  }% APY for avg ${averageDuration.toFixed(0)} month${
-                    averageDuration > 1 ? "s" : ""
-                  }`
+                ? `${averageInterest > 0
+                  ? averageInterest.toFixed(1)
+                  : BASE_ROI_PER_YEAR
+                }% APY for avg ${averageDuration.toFixed(0)} month${averageDuration > 1 ? "s" : ""
+                }`
                 : "No active positions"}
             </div>
           </CardContent>

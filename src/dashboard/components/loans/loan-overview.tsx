@@ -106,7 +106,7 @@ const LoanOverview = () => {
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
   const [selectedLoan, setSelectedLoan] = useState<Loan | null>(null);
   const [open, setOpen] = useState<boolean>(false);
-  const [viewMode, setViewMode] = useState<"table" | "card">("table");
+  const [viewMode, setViewMode] = useState<"table" | "card">("card");
 
   const { isLoadingLoans, loans, error, refetch: fetchLoans } = useLoans();
 
@@ -183,8 +183,8 @@ const LoanOverview = () => {
               <button
                 onClick={() => setViewMode("card")}
                 className={`p-2 rounded-md transition-all ${viewMode === "card"
-                    ? "bg-white shadow-sm text-[#5B1E9F]"
-                    : "text-[#8C94A6] hover:text-[#49576D]"
+                  ? "bg-white shadow-sm text-[#5B1E9F]"
+                  : "text-[#8C94A6] hover:text-[#49576D]"
                   }`}
               >
                 <LayoutGrid className="w-4 h-4" />
@@ -192,8 +192,8 @@ const LoanOverview = () => {
               <button
                 onClick={() => setViewMode("table")}
                 className={`p-2 rounded-md transition-all ${viewMode === "table"
-                    ? "bg-white shadow-sm text-[#5B1E9F]"
-                    : "text-[#8C94A6] hover:text-[#49576D]"
+                  ? "bg-white shadow-sm text-[#5B1E9F]"
+                  : "text-[#8C94A6] hover:text-[#49576D]"
                   }`}
               >
                 <List className="w-4 h-4" />
@@ -377,18 +377,23 @@ const LoanOverview = () => {
                     <span className="text-white/80 text-sm font-medium capitalize">
                       {selectedLoan.assetId.assetCategory}
                     </span>
-                    <span
-                      className={`text-xs font-medium px-2.5 py-1 rounded-full ${selectedLoan.assetId.verified === true ||
-                        String(selectedLoan.assetId.verified) === "true"
-                        ? "bg-emerald-400/20 text-emerald-100"
-                        : "bg-amber-400/20 text-amber-100"
-                        }`}
-                    >
-                      {selectedLoan.assetId.verified === true ||
-                        String(selectedLoan.assetId.verified) === "true"
-                        ? "✓ Verified"
-                        : "⏳ In Review"}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      {/* Loan Status Badge */}
+                      <span
+                        className={`text-xs font-medium px-2.5 py-1 rounded-full ${selectedLoan.status?.toLowerCase() === "approved" || selectedLoan.status?.toLowerCase() === "repaid"
+                          ? "bg-emerald-400/20 text-emerald-100"
+                          : selectedLoan.status?.toLowerCase() === "cancelled" || selectedLoan.status?.toLowerCase() === "rejected"
+                            ? "bg-red-400/20 text-red-100"
+                            : "bg-amber-400/20 text-amber-100"
+                          }`}
+                      >
+                        {selectedLoan.status?.toLowerCase() === "approved" || selectedLoan.status?.toLowerCase() === "repaid"
+                          ? `✓ ${selectedLoan.status}`
+                          : selectedLoan.status?.toLowerCase() === "cancelled" || selectedLoan.status?.toLowerCase() === "rejected"
+                            ? `✕ ${selectedLoan.status}`
+                            : `⏳ ${selectedLoan.status || "Pending"}`}
+                      </span>
+                    </div>
                   </div>
                   <DialogTitle className="text-2xl font-bold capitalize tracking-tight">
                     {selectedLoan.loanPurpose}
@@ -589,18 +594,22 @@ const LoanOverview = () => {
                   <Button className="flex-1 h-12 bg-gradient-to-r from-[#5B1E9F] to-[#439EFF] hover:opacity-90 text-white rounded-xl font-semibold text-[15px] shadow-lg shadow-[#5B1E9F]/20">
                     Repay Now
                   </Button>
-                  <Button
-                    onClick={handleDeleteLoan}
-                    disabled={isDeleting}
-                    variant="outline"
-                    className="h-12 w-12 rounded-xl border-red-200 hover:bg-red-50 hover:border-red-300 text-red-500"
-                  >
-                    {isDeleting ? (
-                      <Loader className="w-5 h-5 animate-spin" />
-                    ) : (
-                      <Trash2 className="w-5 h-5" />
+                  {/* Only show delete button if loan is not approved or repaid */}
+                  {selectedLoan.status?.toLowerCase() !== "approved" &&
+                    selectedLoan.status?.toLowerCase() !== "repaid" && (
+                      <Button
+                        onClick={handleDeleteLoan}
+                        disabled={isDeleting}
+                        variant="outline"
+                        className="h-12 w-12 rounded-xl border-red-200 hover:bg-red-50 hover:border-red-300 text-red-500"
+                      >
+                        {isDeleting ? (
+                          <Loader className="w-5 h-5 animate-spin" />
+                        ) : (
+                          <Trash2 className="w-5 h-5" />
+                        )}
+                      </Button>
                     )}
-                  </Button>
                 </div>
               </div>
             </div>
