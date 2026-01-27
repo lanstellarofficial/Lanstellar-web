@@ -23,6 +23,8 @@ import {
   Receipt,
   Fuel,
   Banknote,
+  LayoutGrid,
+  List,
 } from "lucide-react";
 import {
   Dialog,
@@ -104,6 +106,7 @@ const LoanOverview = () => {
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
   const [selectedLoan, setSelectedLoan] = useState<Loan | null>(null);
   const [open, setOpen] = useState<boolean>(false);
+  const [viewMode, setViewMode] = useState<"table" | "card">("table");
 
   const { isLoadingLoans, loans, error, refetch: fetchLoans } = useLoans();
 
@@ -174,67 +177,192 @@ const LoanOverview = () => {
       <Card className="border-none shadow-none rounded-none">
         <CardHeader className="flex flex-row justify-between items-center text-[16px] px-0 text-black font-semibold">
           <span>Loan Overview</span>
-          <RequestLoanDialog />
+          <div className="flex items-center gap-3">
+            {/* View Toggle Buttons */}
+            <div className="flex items-center bg-[#F8F8FB] rounded-lg p-1">
+              <button
+                onClick={() => setViewMode("card")}
+                className={`p-2 rounded-md transition-all ${viewMode === "card"
+                    ? "bg-white shadow-sm text-[#5B1E9F]"
+                    : "text-[#8C94A6] hover:text-[#49576D]"
+                  }`}
+              >
+                <LayoutGrid className="w-4 h-4" />
+              </button>
+              <button
+                onClick={() => setViewMode("table")}
+                className={`p-2 rounded-md transition-all ${viewMode === "table"
+                    ? "bg-white shadow-sm text-[#5B1E9F]"
+                    : "text-[#8C94A6] hover:text-[#49576D]"
+                  }`}
+              >
+                <List className="w-4 h-4" />
+              </button>
+            </div>
+            <RequestLoanDialog />
+          </div>
         </CardHeader>
 
         <CardContent className="text-[13.78px] flex flex-col font-medium w-full justify-center items-center text-[#8C94A6] px-0">
-          <Table className="scrollbar-hide">
-            <TableHeader className="bg-[#F8F8FB] text-[#49576D] border-b border-b-[#E5E5E5] font-medium text-[12.06px]">
-              <TableRow>
-                <TableHead>Purpose of loan</TableHead>
-                <TableHead>Asset Collateral</TableHead>
-                <TableHead>Amount</TableHead>
-                <TableHead>Loan Duration</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Date</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
+          {viewMode === "table" ? (
+            /* Table View */
+            <Table className="scrollbar-hide">
+              <TableHeader className="bg-[#F8F8FB] text-[#49576D] border-b border-b-[#E5E5E5] font-medium text-[12.06px]">
+                <TableRow>
+                  <TableHead>Purpose of loan</TableHead>
+                  <TableHead>Asset Collateral</TableHead>
+                  <TableHead>Amount</TableHead>
+                  <TableHead>Loan Duration</TableHead>
+                  <TableHead>Status</TableHead>
+                  <TableHead>Date</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {loans.map((loan: Loan) => (
+                  <TableRow
+                    key={loan._id}
+                    className="hover:bg-[#F8F8FB] transition-colors cursor-pointer"
+                    onClick={() => {
+                      setSelectedLoan(loan as unknown as Loan);
+                      setOpen(true);
+                    }}
+                  >
+                    <TableCell className="text-[#1A1A1A] capitalize">
+                      {loan.loanPurpose}
+                    </TableCell>
+                    <TableCell className="text-[#1A1A21]">
+                      {typeof loan.assetId === "string"
+                        ? loan.assetId
+                        : (loan.assetId as { assetTitle: string }).assetTitle}
+                    </TableCell>
+                    <TableCell className="text-[#1A1A21] font-semibold">
+                      ${loan.amount}
+                    </TableCell>
+                    <TableCell className="text-[#1A1A21]">
+                      {loan.duration}
+                    </TableCell>
+                    <TableCell className="text-[#1A1A21]">
+                      <StatusBadge status={loan.status ?? ""} />
+                    </TableCell>
+                    <TableCell className="text-[#1A1A21] gap-3 flex flex-col">
+                      <div>{loan?.createdAt?.slice(0, 10) || ""}</div>
+
+                      {(loan as any).due && (
+                        <span className="text-[#49576D] flex flex-row items-center font-medium text-[12.06px]">
+                          <img
+                            src={"/icons/arrow.svg"}
+                            width={24}
+                            height={24}
+                            alt="arrow"
+                          />
+                          <div>{(loan as any).due?.slice(0, 10) || ""}</div>
+                        </span>
+                      )}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          ) : (
+            /* Card View */
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {loans.map((loan: Loan) => (
-                <TableRow
+                <div
                   key={loan._id}
-                  className="hover:bg-[#F8F8FB] transition-colors cursor-pointer"
                   onClick={() => {
                     setSelectedLoan(loan as unknown as Loan);
                     setOpen(true);
                   }}
+                  className="bg-white border border-[#E4E3EC] rounded-xl p-4 cursor-pointer hover:border-[#5B1E9F]/30 hover:shadow-md transition-all"
                 >
-                  <TableCell className="text-[#1A1A1A] capitalize">
-                    {loan.loanPurpose}
-                  </TableCell>
-                  <TableCell className="text-[#1A1A21]">
-                    {typeof loan.assetId === "string"
-                      ? loan.assetId
-                      : (loan.assetId as { assetTitle: string }).assetTitle}
-                  </TableCell>
-                  <TableCell className="text-[#1A1A21] font-semibold">
-                    ${loan.amount}
-                  </TableCell>
-                  <TableCell className="text-[#1A1A21]">
-                    {loan.duration}
-                  </TableCell>
-                  <TableCell className="text-[#1A1A21]">
+                  {/* Card Header */}
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <p className="text-xs text-[#8C94A6] font-medium uppercase">
+                        {typeof loan.assetId === "string"
+                          ? "Asset"
+                          : loan.assetId.assetCategory}
+                      </p>
+                      <h3 className="text-[15px] font-semibold text-[#1A1A21] capitalize mt-0.5">
+                        {loan.loanPurpose}
+                      </h3>
+                    </div>
                     <StatusBadge status={loan.status ?? ""} />
-                  </TableCell>
-                  <TableCell className="text-[#1A1A21] gap-3 flex flex-col">
-                    <div>{loan?.createdAt?.slice(0, 10) || ""}</div>
+                  </div>
 
+                  {/* Loan Amount */}
+                  <div className="mb-4">
+                    <p className="text-2xl font-bold text-[#1A1A21]">
+                      {new Intl.NumberFormat("en-US", {
+                        style: "currency",
+                        currency: "USD",
+                        minimumFractionDigits: 0,
+                      }).format(loan.amount)}
+                    </p>
+                  </div>
+
+                  {/* Loan Details */}
+                  <div className="space-y-2 mb-4">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-[#8C94A6] flex items-center gap-1.5">
+                        <Calendar className="w-3.5 h-3.5" />
+                        Duration
+                      </span>
+                      <span className="text-[#1A1A21] font-medium">
+                        {loan.duration} months
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-[#8C94A6] flex items-center gap-1.5">
+                        <Percent className="w-3.5 h-3.5" />
+                        Interest Rate
+                      </span>
+                      <span className="text-[#1A1A21] font-medium">
+                        {loan.interestRate}%
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-[#8C94A6] flex items-center gap-1.5">
+                        <CreditCard className="w-3.5 h-3.5" />
+                        Payments
+                      </span>
+                      <span className="text-[#1A1A21] font-medium">
+                        {loan.paymentPlan} installments
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Collateral Info */}
+                  <div className="bg-[#F8F8FB] rounded-lg p-3">
+                    <p className="text-xs text-[#8C94A6] font-medium mb-1">
+                      Collateral Asset
+                    </p>
+                    <p className="text-sm font-medium text-[#1A1A21] capitalize">
+                      {typeof loan.assetId === "string"
+                        ? loan.assetId
+                        : loan.assetId.assetTitle}
+                    </p>
+                    {typeof loan.assetId !== "string" && loan.assetId.assetLocation && (
+                      <div className="flex items-center gap-1 mt-1 text-[#49576D] text-xs">
+                        <MapPin className="w-3 h-3" />
+                        <span>{loan.assetId.assetLocation}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Date Footer */}
+                  <div className="mt-3 pt-3 border-t border-[#E4E3EC] flex items-center justify-between text-xs text-[#8C94A6]">
+                    <span>Created: {loan?.createdAt?.slice(0, 10) || ""}</span>
                     {(loan as any).due && (
-                      <span className="text-[#49576D] flex flex-row items-center font-medium text-[12.06px]">
-                        <img
-                          src={"/icons/arrow.svg"}
-                          width={24}
-                          height={24}
-                          alt="arrow"
-                        />
-                        <div>{(loan as any).due?.slice(0, 10) || ""}</div>
+                      <span className="text-[#49576D] font-medium">
+                        Due: {(loan as any).due?.slice(0, 10)}
                       </span>
                     )}
-                  </TableCell>
-                </TableRow>
+                  </div>
+                </div>
               ))}
-            </TableBody>
-          </Table>
+            </div>
+          )}
         </CardContent>
       </Card>
 
@@ -250,15 +378,14 @@ const LoanOverview = () => {
                       {selectedLoan.assetId.assetCategory}
                     </span>
                     <span
-                      className={`text-xs font-medium px-2.5 py-1 rounded-full ${
-                        selectedLoan.assetId.verified === true ||
+                      className={`text-xs font-medium px-2.5 py-1 rounded-full ${selectedLoan.assetId.verified === true ||
                         String(selectedLoan.assetId.verified) === "true"
-                          ? "bg-emerald-400/20 text-emerald-100"
-                          : "bg-amber-400/20 text-amber-100"
-                      }`}
+                        ? "bg-emerald-400/20 text-emerald-100"
+                        : "bg-amber-400/20 text-amber-100"
+                        }`}
                     >
                       {selectedLoan.assetId.verified === true ||
-                      String(selectedLoan.assetId.verified) === "true"
+                        String(selectedLoan.assetId.verified) === "true"
                         ? "✓ Verified"
                         : "⏳ In Review"}
                     </span>
@@ -316,8 +443,8 @@ const LoanOverview = () => {
                       docs={
                         Array.isArray(selectedLoan.assetId.docs)
                           ? selectedLoan.assetId.docs.map((str) => ({
-                              cloudinaryUrl: str,
-                            }))
+                            cloudinaryUrl: str,
+                          }))
                           : selectedLoan.assetId.docs
                       }
                     />
@@ -362,7 +489,7 @@ const LoanOverview = () => {
                           currency: "USD",
                         }).format(
                           selectedLoan.amount *
-                            (selectedLoan.interestRate / 100)
+                          (selectedLoan.interestRate / 100)
                         )}
                       </span>
                     </div>
@@ -417,10 +544,10 @@ const LoanOverview = () => {
                           currency: "USD",
                         }).format(
                           selectedLoan.amount *
-                            (1 +
-                              selectedLoan.interestRate / 100 +
-                              0.008 +
-                              0.002)
+                          (1 +
+                            selectedLoan.interestRate / 100 +
+                            0.008 +
+                            0.002)
                         )}
                       </span>
                     </div>
@@ -443,7 +570,7 @@ const LoanOverview = () => {
                             selectedLoan.interestRate / 100 +
                             0.008 +
                             0.002)) /
-                          selectedLoan.paymentPlan
+                        selectedLoan.paymentPlan
                       )}
                     </p>
                   </div>

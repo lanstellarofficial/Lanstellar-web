@@ -22,8 +22,8 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           <Navbar onMenuClick={() => setSidebarOpen(true)} />
         </header>
 
-        <main className="flex-1 overflow-y-auto bg-white">
-          <div className="mx-auto">{children}</div>
+        <main className="w-full bg-white">
+          <div className="w-full px-4 md:px-10 py-5">{children}</div>
         </main>
       </div>
     </div>
@@ -31,3 +31,4 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
 };
 
 export default DashboardLayout;
+

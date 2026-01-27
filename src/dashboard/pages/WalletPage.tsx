@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function WalletPage() {
   const [isVisible, setIsVisible] = useState(false);
   return (
-    <div className="p-4">
+    <div className="">
       <div className="w-full space-y-5 ">
         {/* <div className="flex flex-col gap-2">
           <h1 className="text-[15.5px] text-black font-medium">Wallet</h1>

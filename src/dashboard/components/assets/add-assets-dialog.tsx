@@ -152,7 +152,7 @@ const AddAssetsDialog = () => {
   };
 
   const onSubmit = async (data: AssetFormData) => {
-    console.log("Form data submitted:", data);
+
 
     if (media.length === 0) {
       toast.error("Please upload at least one image");
@@ -216,9 +216,8 @@ const AddAssetsDialog = () => {
                   required: "Asset title is required",
                 })}
                 placeholder="Enter asset title"
-                className={`w-full h-[42px] rounded-[10px] border bg-[#F5F5F5] px-4 py-2 text-[14px] text-[#333] ${
-                  errors.assetTitle ? "border-red-500" : "border-[#F1F1F1]"
-                }`}
+                className={`w-full h-[42px] rounded-[10px] border bg-[#F5F5F5] px-4 py-2 text-[14px] text-[#333] ${errors.assetTitle ? "border-red-500" : "border-[#F1F1F1]"
+                  }`}
               />
               {errors.assetTitle && (
                 <p className="text-red-500 text-xs">
@@ -255,17 +254,15 @@ const AddAssetsDialog = () => {
                   render={({ field }) => (
                     <Select
                       onValueChange={(value) => {
-                        console.log("Category selected:", value);
                         field.onChange(value);
                       }}
                       value={field.value}
                     >
                       <SelectTrigger
-                        className={`w-full h-[42px] rounded-[10px] border bg-[#F5F5F5] px-4 text-[14px] text-[#333] shadow-none ${
-                          errors.assetCategory
+                        className={`w-full h-[42px] rounded-[10px] border bg-[#F5F5F5] px-4 text-[14px] text-[#333] shadow-none ${errors.assetCategory
                             ? "border-red-500"
                             : "border-[#F1F1F1]"
-                        }`}
+                          }`}
                       >
                         <SelectValue placeholder="Select category" />
                       </SelectTrigger>
@@ -313,9 +310,8 @@ const AddAssetsDialog = () => {
                     min: { value: 0, message: "Worth must be positive" },
                   })}
                   placeholder="10,000"
-                  className={`w-full h-[42px] rounded-[10px] border bg-[#F5F5F5] px-4 py-2 text-[14px] text-[#333] ${
-                    errors.assetWorth ? "border-red-500" : "border-[#F1F1F1]"
-                  }`}
+                  className={`w-full h-[42px] rounded-[10px] border bg-[#F5F5F5] px-4 py-2 text-[14px] text-[#333] ${errors.assetWorth ? "border-red-500" : "border-[#F1F1F1]"
+                    }`}
                 />
                 {errors.assetWorth && (
                   <p className="text-red-500 text-xs">
@@ -339,9 +335,8 @@ const AddAssetsDialog = () => {
                   required: "Location is required",
                 })}
                 placeholder="Enter asset location"
-                className={`w-full h-[42px] rounded-[10px] border bg-[#F5F5F5] px-4 py-2 text-[14px] text-[#333] ${
-                  errors.assetLocation ? "border-red-500" : "border-[#F1F1F1]"
-                }`}
+                className={`w-full h-[42px] rounded-[10px] border bg-[#F5F5F5] px-4 py-2 text-[14px] text-[#333] ${errors.assetLocation ? "border-red-500" : "border-[#F1F1F1]"
+                  }`}
               />
               {errors.assetLocation && (
                 <p className="text-red-500 text-xs">
@@ -368,11 +363,10 @@ const AddAssetsDialog = () => {
                   },
                 })}
                 placeholder="Provide a detailed description of the asset..."
-                className={`w-full min-h-[80px] resize-none rounded-[10px] border bg-[#F5F5F5] px-4 py-3 text-[14px] text-[#333] ${
-                  errors.assetDescription
+                className={`w-full min-h-[80px] resize-none rounded-[10px] border bg-[#F5F5F5] px-4 py-3 text-[14px] text-[#333] ${errors.assetDescription
                     ? "border-red-500"
                     : "border-[#F1F1F1]"
-                }`}
+                  }`}
               />
               {errors.assetDescription && (
                 <p className="text-red-500 text-xs">

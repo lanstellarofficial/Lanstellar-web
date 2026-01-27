@@ -7,13 +7,13 @@ const SettingsPage = () => {
   const [activeTab, setActiveTab] = useState("profile");
 
   return (
-    <div className=" ">
-      <Tabs value={activeTab} onValueChange={setActiveTab} className=" w-full">
-        <div className=" w-full border-b-[1px] border-b-[#F4F3F7] h-[57px] flex flex-col justify-center px-6  py-8 mb-4">
+    <div className="">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-5 w-full">
+        <div className=" w-full border-b-[1px] border-b-[#F4F3F7] flex flex-col justify-center px-6 py-3">
           <TabsList className="bg-white text-[13.78px] font-medium leading-[20.67px] w-1/2 ">
             <TabsTrigger
               value="profile"
-              className="text-[#8C94A6] cursor-pointer data-[state=active]:bg-[#F7F7F8] data-[state=active]:shadow-none data-[state=active]:text-[#1A1A21] shadow-none rounded-[4px] h-[25px] w-fit p-[6px]  transition-all"
+              className="text-[#8C94A6] cursor-pointer data-[state=active]:bg-[#F7F7F8] data-[state=active]:shadow-none data-[state=active]:text-[#1A1A21] shadow-none rounded-[4px] h-[25px] w-fit p-[6px] transition-all"
             >
               Profile
             </TabsTrigger>

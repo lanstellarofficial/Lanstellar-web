@@ -12,9 +12,6 @@ import {
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Loader2 } from "lucide-react";
@@ -82,10 +79,10 @@ export function Profile() {
   useEffect(() => {
     if (user) {
       setFormData({
-        fullName: user.fullName || "",
+        fullName: user.companyName || "",
         email: user.email || "",
         country: user.country || "",
-        address: user.address || "",
+        address: user.walletAddress || "",
         contact: user.contact || "",
         profilePicture: user.profilePicture || "",
       });
@@ -138,13 +135,7 @@ export function Profile() {
   }
 
   return (
-    <Card className="shadow-none border-none pt-0 w-11/12 mx-auto">
-      <CardHeader className="border-b-[1px] border-b-[#F4F3F7] pb-3.5">
-        <CardTitle className="text-[20px] font-semibold">Profile</CardTitle>
-        <CardDescription className="text-[#8C94A6] text-[13.78px]">
-          Manage your company details
-        </CardDescription>
-      </CardHeader>
+    <div className="w-full mx-auto">
       <CardContent className="space-y-6">
         {/* Avatar */}
         <div className="flex flex-row items-center">
@@ -203,7 +194,7 @@ export function Profile() {
         {/* Form fields */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className=" space-y-2">
-            <Label htmlFor="name">Name</Label>
+            <Label htmlFor="name">Company name</Label>
             <Input
               id="name"
               value={formData.fullName}
@@ -239,31 +230,24 @@ export function Profile() {
               </SelectContent>
             </Select>
           </div>
-          <div className=" space-y-2">
-            <Label htmlFor="address">Address</Label>
+          <div className="w-full space-y-2">
+            <Label htmlFor="contact">Contact</Label>
             <Input
-              id="address"
-              value={formData.address}
-              onChange={(e) => handleInputChange("address", e.target.value)}
+              id="contact"
+              value={formData.contact}
+              onChange={(e) => handleInputChange("contact", e.target.value)}
+              className="w-full"
             />
           </div>
         </div>
 
-        <div className=" space-y-2">
-          <Label htmlFor="contact">Contact</Label>
-          <Input
-            id="contact"
-            value={formData.contact}
-            onChange={(e) => handleInputChange("contact", e.target.value)}
-            className="w-1/2"
-          />
-        </div>
+        
         <div className=" flex justify-end">
           <Button onClick={handleSubmit} disabled={loading}>
             {loading ? "Saving..." : "Save changes"}
           </Button>
         </div>
       </CardContent>
-    </Card>
+    </div>
   );
 }

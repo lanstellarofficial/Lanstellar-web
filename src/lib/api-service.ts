@@ -56,6 +56,16 @@ export interface User {
   country?: string;
   contact?: string;
   profilePicture?: string;
+  documentStatus?: {
+    total: number;
+    pending: number;
+    processing: number;
+    completed: number;
+    failed: number;
+    reviewPending: number;
+    reviewApproved: number;
+    reviewRejected: number;
+  };
 }
 
 export interface LoanRequest {

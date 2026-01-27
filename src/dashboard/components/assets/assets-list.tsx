@@ -93,7 +93,7 @@ const AssetsList = ({ sortBy }: AssetsListProps) => {
 
   if (error) {
     return (
-      <div className="p-[26px] flex items-center justify-center min-h-[400px]">
+      <div className="flex items-center justify-center min-h-[400px]">
         <div className="text-center space-y-4">
           <div className="text-red-500 mb-2">
             <svg
@@ -171,7 +171,7 @@ const AssetsList = ({ sortBy }: AssetsListProps) => {
   }
 
   return (
-    <div className="p-[26px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
       {sortedAssets.map((asset) => (
         <Dialog key={asset._id}>
           <DialogTrigger asChild>

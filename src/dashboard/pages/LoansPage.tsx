@@ -4,7 +4,7 @@ import RepaymentSchedule from "../components/loans/repayment";
 
 const LoansPage = () => {
   return (
-    <div className="p-4">
+    <div className="">
       <Tabs defaultValue="overview" className="w-full">
         <TabsList className="text-[13px]">
           <TabsTrigger value="overview" className=" text-[13px]">

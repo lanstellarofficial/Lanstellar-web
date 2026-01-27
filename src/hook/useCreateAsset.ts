@@ -18,8 +18,6 @@ export const useCreateAsset = () => {
   const { mutateAsync: createNewAsset, isPending } = useMutation({
     mutationKey: ["createAsset"],
     mutationFn: async (data: CreateAssetData) => {
-      console.log("Creating asset with data:", data);
-
       const formData = new FormData();
 
       // Append text fields
@@ -38,12 +36,6 @@ export const useCreateAsset = () => {
       data.assetDocs.forEach((file) => {
         formData.append("assetDocs", file);
       });
-
-      // Log FormData contents for debugging
-      console.log("FormData contents:");
-      for (const [key, value] of formData.entries()) {
-        console.log(key, value);
-      }
 
       return await createAsset(formData);
     },

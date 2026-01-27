@@ -10,7 +10,7 @@ const AssetsPage = () => {
   };
 
   return (
-    <div className="">
+    <div className="space-y-5">
       <AssetHeader sortBy={sortBy} onSortChange={handleSortChange} />
 
       <div className="">

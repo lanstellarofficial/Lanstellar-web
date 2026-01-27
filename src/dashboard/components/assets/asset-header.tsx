@@ -16,7 +16,7 @@ interface AssetHeaderProps {
 const AssetHeader = ({ sortBy, onSortChange }: AssetHeaderProps) => {
   return (
     <div>
-      <div className=" flex justify-between items-center border-b-[1px] border-[#F4F3F7] p-4 mb-4">
+      <div className=" flex justify-between items-center">
         <div className="bg-[#F7F7F8] whitespace-nowrap text-[13.78px] text-[#8C94A6] w-fit h-[37px] rounded-[10px] flex items-center gap-1.5 px-3 border-[1px] border-[#F4F3F7]">
           <img
             src="/icons/filter.svg"
