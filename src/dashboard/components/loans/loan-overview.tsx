@@ -241,7 +241,7 @@ const LoanOverview = () => {
                     <TableCell className="text-[#1A1A21]">
                       {loan.duration}
                     </TableCell>
-                    <TableCell className="text-[#1A1A21]">
+                    <TableCell className="capitalize text-[#1A1A21]">
                       <StatusBadge status={loan.status ?? ""} />
                     </TableCell>
                     <TableCell className="text-[#1A1A21] gap-3 flex flex-col">
@@ -287,7 +287,9 @@ const LoanOverview = () => {
                         {loan.loanPurpose}
                       </h3>
                     </div>
-                    <StatusBadge status={loan.status ?? ""} />
+                    <div className="capitalize">
+                      <StatusBadge status={loan.status ?? ""} />
+                    </div>
                   </div>
 
                   {/* Loan Amount */}
@@ -380,7 +382,7 @@ const LoanOverview = () => {
                     <div className="flex items-center gap-2">
                       {/* Loan Status Badge */}
                       <span
-                        className={`text-xs font-medium px-2.5 py-1 rounded-full ${selectedLoan.status?.toLowerCase() === "approved" || selectedLoan.status?.toLowerCase() === "repaid"
+                        className={`text-xs capitalize font-medium px-2.5 py-1 rounded-full ${selectedLoan.status?.toLowerCase() === "approved" || selectedLoan.status?.toLowerCase() === "repaid"
                           ? "bg-emerald-400/20 text-emerald-100"
                           : selectedLoan.status?.toLowerCase() === "cancelled" || selectedLoan.status?.toLowerCase() === "rejected"
                             ? "bg-red-400/20 text-red-100"
