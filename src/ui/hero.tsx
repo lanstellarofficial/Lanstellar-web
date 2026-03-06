@@ -44,6 +44,12 @@ const Hero = () => {
             </Button>
           </a>
         </div>
+        <a href="https://www.papermark.com/view/cmhuaz0rl0006kv041neka78o" target="_blank">
+          <Button className="h-[48px] !mt-[-20px] sm:h-[56px] w-full sm:w-[190px] font-inter text-[14px] sm:text-[16px] bg-white m-2 hover:bg-white/90 cursor-pointer text-black px-6 py-3 rounded-full">
+            <Zap fill="#000000" />
+            View our pitch
+          </Button>
+        </a>
 
         {/* Trusted by */}
         <div className="">
