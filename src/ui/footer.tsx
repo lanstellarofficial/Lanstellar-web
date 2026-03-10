@@ -2,7 +2,10 @@ import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
-    <section className="relative min-h-screen bg-[#F5F5F5]/80 bg-[url('/heropatern.svg')] bg-cover bg-blend-overlay bg-center flex flex-col items-center justify-center">
+    <section
+      id="contact"
+      className="relative min-h-screen bg-[#F5F5F5]/80 bg-[url('/heropatern.svg')] bg-cover bg-blend-overlay bg-center flex flex-col items-center justify-center"
+    >
       {/* Background Noise */}
       <img
         src="/heronoise.png"
@@ -51,9 +54,12 @@ const Footer = () => {
           {/* Navigation */}
           <nav>
             <ul className="flex flex-col sm:flex-row gap-4 sm:gap-[40px] font-inter text-[16px] sm:text-[18px] font-medium text-[#151515] text-center">
-              <li className="cursor-pointer">Demo</li>
-              <li className="cursor-pointer">Features</li>
-              <li className="cursor-pointer">Contact</li>
+              <li className="cursor-pointer">
+                <a href="#features">Features</a>
+              </li>
+              <li className="cursor-pointer">
+                <a href="#contact">Contact</a>
+              </li>
             </ul>
           </nav>
         </div>

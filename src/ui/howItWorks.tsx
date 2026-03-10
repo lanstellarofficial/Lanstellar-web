@@ -24,7 +24,10 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="px-4 sm:px-8 md:px-[64px] py-12 md:py-20 relative">
+    <section
+      id="features"
+      className="px-4 sm:px-8 md:px-[64px] py-12 md:py-20 relative"
+    >
       <div className="relative overflow-hidden">
         <div className="absolute -top-20 -right-28 w-[120px] sm:w-[160px] md:w-[200px] opacity-25 rotate-150">
           <img

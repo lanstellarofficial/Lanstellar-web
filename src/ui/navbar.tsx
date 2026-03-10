@@ -18,9 +18,12 @@ const Navbar = () => {
 
       <nav className=" md:flex hidden">
         <ul className="flex gap-[40px] font-inter  text-[18px] font-medium text-[#f4f3f7]">
-          <li className="cursor-pointer">Demo</li>
-          <li className="cursor-pointer">Features</li>
-          <li className="cursor-pointer">Contact</li>
+          <li className="cursor-pointer">
+            <a href="#features">Features</a>
+          </li>
+          <li className="cursor-pointer">
+            <a href="#contact">Contact</a>
+          </li>
         </ul>
       </nav>
 

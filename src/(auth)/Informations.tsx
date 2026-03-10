@@ -128,9 +128,12 @@ export default function Informations() {
 
   const isBorrower = user?.userType === "borrower";
 
-  // Use appropriate loading state based on current step
-  const loading =
-    currentStep === 1 ? stepOneUpdate.loading : finalUpdate.loading;
+  // Use appropriate loading state based on current step and user type
+  const loading = isBorrower
+    ? currentStep === 1
+      ? stepOneUpdate.loading
+      : finalUpdate.loading
+    : finalUpdate.loading;
 
   // Borrower form
   const borrowerForm = useForm<BorrowerFormData>({
@@ -281,8 +284,8 @@ export default function Informations() {
             >
               <div
                 className={`w-6 h-6 rounded-full flex items-center justify-center text-sm ${currentStep >= 1
-                    ? "bg-[#DACBEB] text-[#5809B0]"
-                    : "bg-[#F4F3F7] text-[#8C94A6]"
+                  ? "bg-[#DACBEB] text-[#5809B0]"
+                  : "bg-[#F4F3F7] text-[#8C94A6]"
                   }`}
               >
                 1
@@ -301,8 +304,8 @@ export default function Informations() {
             >
               <div
                 className={`w-6 h-6 rounded-full flex items-center justify-center text-sm ${currentStep >= 2
-                    ? "bg-purple-600 text-white"
-                    : "bg-gray-200 text-gray-600"
+                  ? "bg-purple-600 text-white"
+                  : "bg-gray-200 text-gray-600"
                   }`}
               >
                 2
