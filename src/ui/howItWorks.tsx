@@ -41,7 +41,7 @@ const HowItWorks = () => {
       </div>
 
       {/* Section Heading */}
-      <div className="flex flex-col justify-start mb-8 sm:mb-12">
+      <div className="flex flex-col justify-center w-full items-center mb-8 sm:mb-12">
         <span className="text-[#969798] text-xs sm:text-sm tracking-wide">
           SIMPLE 3 STEP FLOW
         </span>

@@ -16,14 +16,12 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-20 text-center max-w-3xl px-4 mt-5 space-y-7 sm:mt-20 ">
         <h1 className="text-4xl md:text-5xl lg:text-[64px] leading-tight md:leading-[56px] lg:leading-[72px] font-medium font-helvetica">
-          Stablecoin Liquidity,
-          <br className="hidden sm:block" /> For Real World Assets
+          The Trust Layer for African Private Credit.
         </h1>
 
         <p className="mt-4 text-gray-300 text-base sm:text-lg md:text-xl lg:text-[20px] leading-relaxed font-inter">
-          Lanstellar connects asset managers and{" "}
-          <br className="hidden md:block" /> liquidity providers for instant
-          stablecoin loans
+          Bridging global liquidity to high-impact Microfinance Banks through
+          AI-driven Credit Proofs on the blockchain.
         </p>
 
         {/* Buttons */}
@@ -44,7 +42,10 @@ const Hero = () => {
             </Button>
           </a>
         </div>
-        <a href="https://www.papermark.com/view/cmhuaz0rl0006kv041neka78o" target="_blank">
+        <a
+          href="https://www.papermark.com/view/cmhuaz0rl0006kv041neka78o"
+          target="_blank"
+        >
           <Button className="h-[48px] !mt-[-20px] sm:h-[56px] w-full sm:w-[190px] font-inter text-[14px] sm:text-[16px] bg-white m-2 hover:bg-white/90 cursor-pointer text-black px-6 py-3 rounded-full">
             <Zap fill="#000000" />
             View our pitch

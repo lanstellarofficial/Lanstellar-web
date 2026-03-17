@@ -5,6 +5,7 @@ import Hero from "./ui/hero";
 import HowItWorks from "./ui/howItWorks";
 import Navbar from "./ui/navbar";
 import Waitlist from "./ui/waitlist";
+import Features from "./ui/features";
 import DashboardLayout from "./dashboard/layout";
 import DashboardPage from "./dashboard/page";
 import AssetsPage from "./dashboard/pages/AssetsPage";
@@ -28,6 +29,7 @@ const HomePage = () => {
       <Navbar />
       <Hero />
       <About />
+      <Features />
       <HowItWorks />
       <Waitlist />
       <Footer />
