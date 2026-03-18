@@ -1,91 +1,64 @@
 const steps = [
   {
     id: "01",
-    title: "Tokenize",
-    description:
-      "Upload your asset for AI powered verification. We’ll mint a secure NFT onchain.",
-    image: "/upload.svg",
+    tag: "Liquidity Provider",
+    title: "Deposit Stablecoins",
+    body: "LPs deposit USDC or USDT into Lanstellar's smart contract pool. Capital earns yield from day one, secured by AI-verified collateral.",
+    color: "white"
   },
   {
     id: "02",
-    title: "Loan",
-    description:
-      "Once verified, request a stablecoin loan with your verified asset as collateral.",
-    image: "/loan.svg",
+    tag: "AI Engine",
+    title: "AI Verification",
+    body: "AI agents assess MFB creditworthiness, verify real-world collateral (property, receivables, assets), and generate a risk score — on-chain and transparent.",
+    color: "blue"
   },
   {
     id: "03",
-    title: "Grow",
-    description:
-      "Use the funds to grow your business. Repay with interest, reclaim your asset.",
-    image: "/grow.svg",
+    tag: "Microfinance Bank",
+    title: "Stablecoin Disbursement",
+    body: "Approved MFBs receive stablecoin loans directly within minutes. They convert to local currency and deploy capital immediately to their SME borrowers.",
+    color: "blue"
+  },
+  {
+    id: "04",
+    tag: "Repayment + Yield",
+    title: "Automated Repayment",
+    body: "Smart contracts automate repayment schedules. LPs receive principal plus yield. The cycle repeats — compounding returns and real economic impact.",
+    color: "white"
   },
 ];
 
 const HowItWorks = () => {
   return (
-    <section
-      id="features"
-      className="px-4 sm:px-8 md:px-[64px] py-12 md:py-20 relative"
-    >
-      <div className="relative overflow-hidden">
-        <div className="absolute -top-20 -right-28 w-[120px] sm:w-[160px] md:w-[200px] opacity-25 rotate-150">
-          <img
-            src="/coins.png"
-            alt="coins"
-            width={200}
-            height={200}
-            className="object-contain"
-          />
+    <section id="how" className="py-24 px-6 md:px-12 bg-[#1a1a1a] border-y border-white/5">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+          <div className="text-[10px] text-gray-400 tracking-[0.2em] uppercase">How It Works</div>
+          <h2 className="text-3xl md:text-5xl font-medium font-helvetica text-white">
+            From idle capital to <br /><span className="text-gray-500 italic">active credit</span> in minutes
+          </h2>
+          <p className="text-gray-400 text-lg font-light leading-relaxed">
+            Lanstellar's AI protocol automates the entire lending lifecycle — from collateral verification to stablecoin disbursement — replacing 60–90 days of manual process.
+          </p>
         </div>
-      </div>
 
-      {/* Section Heading */}
-      <div className="flex flex-col justify-center w-full items-center mb-8 sm:mb-12">
-        <span className="text-[#969798] text-xs sm:text-sm tracking-wide">
-          SIMPLE 3 STEP FLOW
-        </span>
-        <h2 className="text-xl sm:text-2xl md:text-[32px] text-[#212121] font-bold font-inter">
-          How Lanstellar Works..
-        </h2>
-      </div>
-
-      {/* Steps Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {steps.map((step, index) => (
-          <div
-            key={index}
-            className="bg-white font-inter rounded-xl border border-gray-200 shadow-sm flex flex-col"
-          >
-            <div className="p-4 sm:p-6 space-y-3">
-              <span className="text-stroke font-semibold text-lg sm:text-xl text-transparent">
-                {step.id}
-              </span>
-
-              <h3 className="text-lg sm:text-xl font-bold text-[#212121]">
-                {step.title}
-              </h3>
-
-              <p className="text-sm sm:text-base text-[#555555]">
-                {step.description}
-              </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5">
+          {steps.map((step, i) => (
+            <div key={i} className="bg-[#151515] p-8 space-y-6 relative group transition-colors hover:bg-[#1c1c1c]">
+              <div className="space-y-4">
+                <div className={`inline-block px-2 py-0.5 text-[9px] uppercase tracking-widest ${
+                  step.color === 'blue' ? 'text-blue-400 bg-blue-500/10' : 'text-gray-400 bg-white/5'
+                }`}>
+                  {step.tag}
+                </div>
+                <div className="text-4xl font-helvetica font-light text-gray-800 leading-none">{step.id}</div>
+                <h3 className="text-sm font-medium text-white tracking-wide">{step.title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed font-light">{step.body}</p>
+              </div>
             </div>
-
-            <div
-              className={`mt-auto flex justify-end ${
-                index === 1 ? "pr-4 sm:pr-8" : "pl-4 sm:pl-8"
-              }`}
-            >
-              <img
-                src={step.image}
-                alt={step.title}
-                width={412}
-                height={120}
-                className="w-[412px] rh-[193px] object-fil"
-              />
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

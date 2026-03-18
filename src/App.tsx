@@ -1,11 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import About from "./ui/about";
-import Footer from "./ui/footer";
-import Hero from "./ui/hero";
-import HowItWorks from "./ui/howItWorks";
 import Navbar from "./ui/navbar";
-import Waitlist from "./ui/waitlist";
+import Hero from "./ui/hero";
+import Audience from "./ui/about";
 import Features from "./ui/features";
+import HowItWorks from "./ui/howItWorks";
+import Team from "./ui/team";
+import Waitlist from "./ui/waitlist";
+import Footer from "./ui/footer";
 import DashboardLayout from "./dashboard/layout";
 import DashboardPage from "./dashboard/page";
 import AssetsPage from "./dashboard/pages/AssetsPage";
@@ -25,12 +26,13 @@ import WalletPage from "./dashboard/pages/WalletPage";
 
 const HomePage = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-[#151515]">
       <Navbar />
       <Hero />
-      <About />
+      <Audience />
       <Features />
       <HowItWorks />
+      <Team />
       <Waitlist />
       <Footer />
     </div>

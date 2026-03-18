@@ -1,9 +1,26 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="flex items-center justify-between h-[87px] md:px-[100px] px-4 fixed top-0 left-0 right-0 bg-[#151515]/3 backdrop-blur-[2px] z-50">
+    <nav
+      className={`flex items-center justify-between h-[87px] md:px-[100px] px-4 fixed top-0 left-0 right-0 z-50 transition-all duration-400 border-b ${
+        scrolled
+          ? "bg-[#151515]/90 backdrop-blur-md border-white/10"
+          : "bg-transparent border-transparent"
+      }`}
+    >
       <div className="flex items-center">
         <Link to="/">
           <img
@@ -11,30 +28,43 @@ const Navbar = () => {
             alt="logo"
             width={170}
             height={60}
-            className="w-32 h-10 md:w-40 md:h-12 lg:w-48 lg:h-14 xl:w-56 xl:h-16 transition-all duration-300 ease-in-out hover:scale-105"
+            className="w-30 md:w-42 transition-all duration-300 ease-in-out hover:scale-105"
           />
         </Link>
       </div>
 
-      <nav className=" md:flex hidden">
-        <ul className="flex gap-[40px] font-inter  text-[18px] font-medium text-[#f4f3f7]">
-          <li className="cursor-pointer">
-            <a href="#features">Features</a>
+      <div className="hidden md:flex items-center">
+        <ul className="flex gap-[40px] font-inter text-[14px] font-medium text-gray-300 uppercase tracking-widest">
+          <li className="cursor-pointer hover:text-white transition-colors">
+            <a href="#how">How It Works</a>
           </li>
-          <li className="cursor-pointer">
-            <a href="#contact">Contact</a>
+          <li className="cursor-pointer hover:text-white transition-colors">
+            <a href="#platform">Platform</a>
+          </li>
+          <li className="cursor-pointer hover:text-white transition-colors">
+            <a href="#why">Why Lanstellar</a>
+          </li>
+          <li className="cursor-pointer hover:text-white transition-colors">
+            <a href="#team">Team</a>
           </li>
         </ul>
-      </nav>
+      </div>
 
-      <div className="md:gap-5 gap-2 flex">
+      <div className="flex items-center gap-3">
+        <Button
+          variant="ghost"
+          className="hidden sm:inline-flex text-gray-300 border border-gray-700 hover:text-white hover:border-white rounded-none px-6 h-10 text-[11px] uppercase tracking-[0.1em]"
+          asChild
+        >
+          <a href="#waitlist">Get Liquidity</a>
+        </Button>
         <Link to="/login">
-          <Button className="bg-white mr-2 hover:bg-white/90 cursor-pointer text-black rounded-full px-2 font-inter md:h-[56px] h-[40px]  md:w-[190px] w-[150px] md:text-[16px] text-[14px] font-medium">
-            Launch App
+          <Button className="bg-white hover:bg-white/90 text-black rounded-none px-6 h-10 text-[11px] uppercase tracking-[0.1em] font-medium">
+            Provide Liquidity
           </Button>
         </Link>
       </div>
-    </div>
+    </nav>
   );
 };
 export default Navbar;
