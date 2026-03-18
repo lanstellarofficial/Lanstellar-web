@@ -9,7 +9,7 @@ const Problem = () => (
           The Problem
         </div>
         <h2 className="text-3xl md:text-5xl font-medium font-helvetica leading-tight">
-          Credit in Africa is <span className="text-gray-500 italic">broken</span> — and businesses pay the price
+          Credit in Africa is <span className="text-[#5B1E9F] italic">broken</span> — and businesses pay the price
         </h2>
         <div className="space-y-4 text-gray-400 font-light leading-relaxed">
           <p>In Nigeria, commercial interest rates exceed 27%. Microfinance Banks that serve the real economy — small businesses, traders, farmers — borrow at these punishing rates and pass the pain to their SME customers.</p>
@@ -53,50 +53,64 @@ const Platform = () => (
           The Platform
         </div>
         <h2 className="text-[32px] md:text-[48px] font-bold text-gray-900 leading-tight">
-          Built for <span className="text-gray-400">trust, speed,</span> <br />
+          Built for <span className="text-[#5B1E9F]">trust, speed,</span> <br />
           and real-world scale
         </h2>
         <p className="text-gray-500 font-medium">
-          Every component of Lanstellar is engineered to solve a specific failure in the traditional system — from opaque collateral to slow due diligence.
+          Every component of Lanstellar is engineered to solve a specific
+          failure in the traditional system — from opaque collateral to slow due
+          diligence.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-100 border border-gray-100">
         {[
-          { 
-            icon: Zap, 
-            num: "01 — Intelligence", 
-            title: "AI Credit Assessment", 
+          {
+            icon: Zap,
+            num: "01 — Intelligence",
+            title: "AI Credit Assessment",
             body: "Our AI agents replace 60–90 days of manual due diligence with automated, objective credit scoring and real-world collateral verification.",
-            tags: ["Risk Scoring", "Collateral Verify", "Fraud Detect"]
+            tags: ["Risk Scoring", "Collateral Verify", "Fraud Detect"],
           },
-          { 
-            icon: Landmark, 
-            num: "02 — Trust", 
-            title: "On-Chain Transparency", 
+          {
+            icon: Landmark,
+            num: "02 — Trust",
+            title: "On-Chain Transparency",
             body: "Every loan, every collateral record, every repayment — written to the blockchain. Investors verify their exposure in real time.",
-            tags: ["Multi-Chain", "Smart Contracts", "Real-Time Audit"]
+            tags: ["Multi-Chain", "Smart Contracts", "Real-Time Audit"],
           },
-          { 
-            icon: ShieldCheck, 
-            num: "03 — Liquidity", 
-            title: "Multi-Chain Stablecoin Pool", 
+          {
+            icon: ShieldCheck,
+            num: "03 — Liquidity",
+            title: "Multi-Chain Stablecoin Pool",
             body: "A multi-chain stablecoin liquidity pool aggregates capital from DeFi investors globally and routes it to vetted MFB borrowers.",
-            tags: ["USDC / USDT", "Multi-Chain", "Instant Disburse"]
-          }
+            tags: ["USDC / USDT", "Multi-Chain", "Instant Disburse"],
+          },
         ].map((item, i) => (
-          <div key={i} className="bg-white p-10 space-y-6 group hover:bg-gray-50 transition-colors">
-            <div className="w-12 h-12 border border-gray-100 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-all duration-300">
+          <div
+            key={i}
+            className="bg-white p-10 space-y-6 group hover:bg-gray-50 transition-colors"
+          >
+            <div className="w-12 h-12 border border-[#5B1E9F]/20 flex items-center justify-center text-[#5B1E9F] group-hover:bg-[#5B1E9F] group-hover:text-white transition-all duration-300">
               <item.icon size={24} />
             </div>
             <div className="space-y-3">
-              <div className="text-[10px] text-gray-400 uppercase tracking-widest">{item.num}</div>
+              <div className="text-[10px] text-gray-400 uppercase tracking-widest">
+                {item.num}
+              </div>
               <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed font-medium">{item.body}</p>
+              <p className="text-sm text-gray-500 leading-relaxed font-medium">
+                {item.body}
+              </p>
             </div>
             <div className="flex flex-wrap gap-2 pt-2">
-              {item.tags.map(tag => (
-                <span key={tag} className="text-[9px] uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1">{tag}</span>
+              {item.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[9px] uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1"
+                >
+                  {tag}
+                </span>
               ))}
             </div>
           </div>

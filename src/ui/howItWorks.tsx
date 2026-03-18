@@ -31,30 +31,52 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how" className="py-24 px-6 md:px-12 bg-[#1a1a1a] border-y border-white/5">
+    <section
+      id="how"
+      className="py-24 px-6 md:px-12 bg-[#1a1a1a] border-y border-white/5"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <div className="text-[10px] text-gray-400 tracking-[0.2em] uppercase">How It Works</div>
+          <div className="text-[10px] text-gray-400 tracking-[0.2em] uppercase">
+            How It Works
+          </div>
           <h2 className="text-3xl md:text-5xl font-medium font-helvetica text-white">
-            From idle capital to <br /><span className="text-gray-500 italic">active credit</span> in minutes
+            From idle capital to <br />
+            <span className="text-[#5B1E9F] italic">active credit</span> in
+            minutes
           </h2>
           <p className="text-gray-400 text-lg font-light leading-relaxed">
-            Lanstellar's AI protocol automates the entire lending lifecycle — from collateral verification to stablecoin disbursement — replacing 60–90 days of manual process.
+            Lanstellar's AI protocol automates the entire lending lifecycle —
+            from collateral verification to stablecoin disbursement — replacing
+            60–90 days of manual process.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5">
           {steps.map((step, i) => (
-            <div key={i} className="bg-[#151515] p-8 space-y-6 relative group transition-colors hover:bg-[#1c1c1c]">
+            <div
+              key={i}
+              className="bg-[#151515] p-8 space-y-6 relative group transition-colors hover:bg-[#1c1c1c]"
+            >
               <div className="space-y-4">
-                <div className={`inline-block px-2 py-0.5 text-[9px] uppercase tracking-widest ${
-                  step.color === 'blue' ? 'text-blue-400 bg-blue-500/10' : 'text-gray-400 bg-white/5'
-                }`}>
+                <div
+                  className={`inline-block px-2 py-0.5 text-[9px] uppercase tracking-widest ${
+                    step.color === "blue"
+                      ? "text-[#439EFF] bg-blue-500/10"
+                      : "text-gray-400 bg-white/5"
+                  }`}
+                >
                   {step.tag}
                 </div>
-                <div className="text-4xl font-helvetica font-light text-gray-800 leading-none">{step.id}</div>
-                <h3 className="text-sm font-medium text-white tracking-wide">{step.title}</h3>
-                <p className="text-xs text-gray-500 leading-relaxed font-light">{step.body}</p>
+                <div className="text-4xl font-helvetica font-light text-gray-800 leading-none">
+                  {step.id}
+                </div>
+                <h3 className="text-sm font-medium text-white tracking-wide">
+                  {step.title}
+                </h3>
+                <p className="text-xs text-gray-500 leading-relaxed font-light">
+                  {step.body}
+                </p>
               </div>
             </div>
           ))}

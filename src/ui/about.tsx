@@ -7,7 +7,7 @@ const Audience = () => {
         <div className="text-center mb-16 space-y-4">
           <div className="text-[10px] text-gray-400 tracking-[0.2em] uppercase">Who It's For</div>
           <h2 className="text-3xl md:text-5xl font-medium font-helvetica text-white">
-            Two sides of one <span className="text-gray-500 italic">powerful protocol</span>
+            Two sides of one <span className="text-[#5B1E9F] italic">powerful protocol</span>
           </h2>
           <p className="max-w-2xl mx-auto text-gray-400 text-lg font-light leading-relaxed">
             Lanstellar bridges global DeFi capital with Africa's most creditworthy microfinance institutions — creating value for both sides of the market.
@@ -68,14 +68,14 @@ const Audience = () => {
                 "Scale your SME loan book without capital constraints"
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-xs text-gray-500 font-light">
-                  <span className="text-blue-400 mt-0.5">→</span>
+                  <span className="text-[#439EFF] mt-0.5">→</span>
                   {item}
                 </li>
               ))}
             </ul>
             <Button 
               variant="outline"
-              className="border-blue-500/30 text-blue-400 hover:text-blue-300 hover:border-blue-300 rounded-none px-8 h-12 text-[11px] uppercase tracking-[0.12em] font-medium w-full sm:w-auto"
+              className="border-[#439EFF]/30 text-[#439EFF] hover:text-[#439EFF]/80 hover:border-[#439EFF]/80 rounded-none px-8 h-12 text-[11px] uppercase tracking-[0.12em] font-medium w-full sm:w-auto"
               onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Apply for Capital

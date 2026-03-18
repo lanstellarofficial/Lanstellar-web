@@ -53,13 +53,13 @@ const Navbar = () => {
       <div className="flex items-center gap-3">
         <Button
           variant="ghost"
-          className="hidden sm:inline-flex text-gray-300 border border-gray-700 hover:text-white hover:border-white rounded-none px-6 h-10 text-[11px] uppercase tracking-[0.1em]"
+          className="hidden sm:inline-flex text-gray-300 border border-gray-700 hover:text-black hover:bg-white rounded-none px-6 h-10 text-[11px] uppercase tracking-[0.1em]"
           asChild
         >
           <a href="#waitlist">Get Liquidity</a>
         </Button>
         <Link to="/login">
-          <Button className="bg-white hover:bg-white/90 text-black rounded-none px-6 h-10 text-[11px] uppercase tracking-[0.1em] font-medium">
+          <Button className="bg-[#5B1E9F] hover:bg-[#5B1E9F]/90 text-white rounded-none px-6 h-10 text-[11px] uppercase tracking-[0.1em] font-medium">
             Provide Liquidity
           </Button>
         </Link>
