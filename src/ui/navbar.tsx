@@ -17,14 +17,14 @@ const Navbar = () => {
     <nav
       className={`flex items-center justify-between h-[87px] md:px-[100px] px-4 fixed top-0 left-0 right-0 z-50 transition-all duration-400 border-b ${
         scrolled
-          ? "bg-[#151515]/90 backdrop-blur-md border-white/10"
+          ? "bg-white/80 backdrop-blur-md border-gray-200/50"
           : "bg-transparent border-transparent"
       }`}
     >
       <div className="flex items-center">
         <Link to="/">
           <img
-            src="/logo.svg"
+            src="/logo2.svg"
             alt="logo"
             width={170}
             height={60}
@@ -34,17 +34,17 @@ const Navbar = () => {
       </div>
 
       <div className="hidden md:flex items-center">
-        <ul className="flex gap-[40px] font-inter text-[14px] font-medium text-gray-300 uppercase tracking-widest">
-          <li className="cursor-pointer hover:text-white transition-colors">
+        <ul className="flex gap-[40px] font-inter text-[14px] font-medium text-gray-600 uppercase tracking-widest">
+          <li className="cursor-pointer hover:text-[#5B1E9F] transition-colors">
             <a href="#how">How It Works</a>
           </li>
-          <li className="cursor-pointer hover:text-white transition-colors">
+          <li className="cursor-pointer hover:text-[#5B1E9F] transition-colors">
             <a href="#platform">Platform</a>
           </li>
-          <li className="cursor-pointer hover:text-white transition-colors">
+          <li className="cursor-pointer hover:text-[#5B1E9F] transition-colors">
             <a href="#why">Why Lanstellar</a>
           </li>
-          <li className="cursor-pointer hover:text-white transition-colors">
+          <li className="cursor-pointer hover:text-[#5B1E9F] transition-colors">
             <a href="#team">Team</a>
           </li>
         </ul>
@@ -53,7 +53,7 @@ const Navbar = () => {
       <div className="flex items-center gap-3">
         <Button
           variant="ghost"
-          className="hidden sm:inline-flex text-gray-300 border border-gray-700 hover:text-black hover:bg-white rounded-none px-6 h-10 text-[11px] uppercase tracking-[0.1em]"
+          className="hidden sm:inline-flex text-gray-600 border border-gray-200 hover:text-white hover:bg-[#5B1E9F] rounded-none px-6 h-10 text-[11px] uppercase tracking-[0.1em]"
           asChild
         >
           <a href="#waitlist">Get Liquidity</a>
