@@ -4,8 +4,12 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen bg-white bg-blend-multiply bg-[url('/heropatern.svg')] bg-cover bg-center text-gray-900 flex flex-col pt-20"
+      className="relative min-h-screen bg-white text-gray-900 flex flex-col pt-20 overflow-hidden"
     >
+      {/* Background Pattern */}
+      <div 
+        className="absolute inset-0 z-0 bg-[url('/heropatern.svg')] bg-cover bg-center opacity-10 bg-blend-multiply"
+      />
       {/* Noise background */}
       <img
         src="/heronoise.png"
