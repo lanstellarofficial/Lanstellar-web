@@ -1,7 +1,10 @@
 import { ShieldCheck, Landmark, Zap } from "lucide-react";
 
 const Problem = () => (
-  <section id="problem" className="py-24 px-6 md:px-12 bg-[#151515] text-white overflow-hidden">
+  <section
+    id="problem"
+    className="py-24 px-6 md:px-12 bg-[#151515] text-white overflow-hidden"
+  >
     <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
       <div className="space-y-8">
         <div className="flex items-center gap-4 text-[10px] text-gray-500 tracking-[0.2em] uppercase">
@@ -9,32 +12,77 @@ const Problem = () => (
           The Problem
         </div>
         <h2 className="text-3xl md:text-5xl font-medium font-helvetica leading-tight">
-          Credit in Africa is <span className="text-[#5B1E9F] italic">broken</span> — and businesses pay the price
+          Credit in Africa is{" "}
+          <span className="text-[#5B1E9F] italic">broken</span> — and businesses
+          pay the price
         </h2>
-        <div className="space-y-4 text-gray-400 font-light leading-relaxed">
-          <p>In Nigeria, commercial interest rates exceed 27%. Microfinance Banks that serve the real economy — small businesses, traders, farmers — borrow at these punishing rates and pass the pain to their SME customers.</p>
-          <p>Meanwhile, over $140 billion in stablecoins sit idle in DeFi protocols generating no real-world impact. The gap between global DeFi liquidity and African credit demand is the largest mispriced opportunity in global finance.</p>
+        <div className="space-y-4 text-white/80 font-light leading-relaxed">
+          <p>
+            In Nigeria, commercial interest rates exceed 27%. Microfinance Banks
+            that serve the real economy — small businesses, traders, farmers —
+            borrow at these punishing rates and pass the pain to their SME
+            customers.
+          </p>
+          <p>
+            Meanwhile, over $140 billion in stablecoins sit idle in DeFi
+            protocols generating no real-world impact. The gap between global
+            DeFi liquidity and African credit demand is the largest mispriced
+            opportunity in global finance.
+          </p>
         </div>
         <div className="border-l-2 border-white/20 pl-8 py-2 italic font-helvetica text-xl text-gray-300">
-          "$140B in idle DeFi stablecoins. $16 trillion in trapped real-world assets. Lanstellar is the bridge that connects them."
+          "$140B in idle DeFi stablecoins. $16 trillion in trapped real-world
+          assets. Lanstellar is the bridge that connects them."
         </div>
       </div>
 
       <div className="grid gap-px bg-white/5 border border-white/5">
         {[
-          { num: "01", title: "Capital access takes 60–90 days", text: "TradFi demands months of manual due diligence before MFBs access growth capital — by which time opportunities are lost.", stat: "60-90", label: "Days for approval" },
-          { num: "02", title: "Interest rates are crippling", text: "Nigerian banks raise money at high rates and pass costs to MFBs, who pass them to SMEs. The entire chain is broken.", stat: "27%+", label: "Average MFB rate" },
-          { num: "03", title: "DeFi capital earns no real yield", text: "Over $140B in stablecoins earn suboptimal yields in DeFi pools disconnected from productive real-world activity.", stat: "$140B+", label: "Idle stablecoins" },
-          { num: "04", title: "Trust Gap remains wide", text: "Without on-chain transparency and AI verification, investors cannot trust collateral quality — creating a barrier for credit.", stat: "", label: "" }
+          {
+            num: "01",
+            title: "Capital access takes 60–90 days",
+            text: "TradFi demands months of manual due diligence before MFBs access growth capital — by which time opportunities are lost.",
+            stat: "60-90",
+            label: "Days for approval",
+          },
+          {
+            num: "02",
+            title: "Interest rates are crippling",
+            text: "Nigerian banks raise money at high rates and pass costs to MFBs, who pass them to SMEs. The entire chain is broken.",
+            stat: "27%+",
+            label: "Average MFB rate",
+          },
+          {
+            num: "03",
+            title: "DeFi capital earns no real yield",
+            text: "Over $140B in stablecoins earn suboptimal yields in DeFi pools disconnected from productive real-world activity.",
+            stat: "$140B+",
+            label: "Idle stablecoins",
+          },
+          {
+            num: "04",
+            title: "Trust Gap remains wide",
+            text: "Without on-chain transparency and AI verification, investors cannot trust collateral quality — creating a barrier for credit.",
+            stat: "",
+            label: "",
+          },
         ].map((item, i) => (
           <div key={i} className="bg-[#1a1a1a] p-8 space-y-4">
-            <div className="text-[10px] text-gray-500 uppercase tracking-widest">{item.num} — PROBLEM</div>
+            <div className="text-[10px] text-gray-500 uppercase tracking-widest">
+              {item.num} — PROBLEM
+            </div>
             <h4 className="text-sm font-medium text-white">{item.title}</h4>
-            <p className="text-xs text-gray-500 leading-relaxed font-light">{item.text}</p>
+            <p className="text-xs text-white/60 leading-relaxed font-light">
+              {item.text}
+            </p>
             {item.stat && (
               <div className="flex items-center gap-3 pt-2">
-                <span className="text-xl font-helvetica text-white">{item.stat}</span>
-                <span className="text-[10px] text-gray-600 uppercase tracking-widest">{item.label}</span>
+                <span className="text-xl font-helvetica text-white">
+                  {item.stat}
+                </span>
+                <span className="text-[10px] text-white/60 uppercase tracking-widest">
+                  {item.label}
+                </span>
               </div>
             )}
           </div>

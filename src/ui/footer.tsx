@@ -113,17 +113,17 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-12 border-t border-white/5">
-          <div className="text-[10px] text-gray-600 uppercase tracking-widest">
+          <div className="text-[10px] text-white/60 uppercase tracking-widest">
             © 2025 Lanstellar. All rights reserved.
           </div>
-          <div className="flex gap-8 text-[10px] text-gray-600 uppercase tracking-widest">
-            <a href="#" className="hover:text-gray-400">
+          <div className="flex gap-8 text-[10px] text-white/60 uppercase tracking-widest">
+            <a href="#" className="hover:text-white/60">
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-gray-400">
+            <a href="#" className="hover:text-white/60">
               Terms of Service
             </a>
-            <a href="#" className="hover:text-gray-400">
+            <a href="#" className="hover:text-white/60">
               Risk Disclosure
             </a>
           </div>

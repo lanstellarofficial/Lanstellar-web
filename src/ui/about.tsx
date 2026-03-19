@@ -23,7 +23,7 @@ const Audience = () => {
             <h3 className="text-2xl md:text-3xl font-medium text-white font-helvetica leading-tight">
               Earn Real-World Yield on Verified African Credit
             </h3>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-white/80 text-sm leading-relaxed">
               Deploy stablecoin capital into AI-verified, collateral-backed loans to regulated Microfinance Banks across Africa — and earn yields that outperform treasury bills.
             </p>
             <ul className="space-y-4">
@@ -34,7 +34,7 @@ const Audience = () => {
                 "Diversified exposure across multiple MFBs",
                 "Smart contract automated repayments"
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-xs text-gray-500 font-light">
+                <li key={i} className="flex items-start gap-3 text-xs text-white/60 font-light">
                   <span className="text-white mt-0.5">→</span>
                   {item}
                 </li>
@@ -56,7 +56,7 @@ const Audience = () => {
             <h3 className="text-2xl md:text-3xl font-medium text-white font-helvetica leading-tight">
               Access Growth Capital in Minutes, Not Months
             </h3>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-white/80 text-sm leading-relaxed">
               Stop waiting 60–90 days for TradFi approval. Lanstellar's AI engine verifies your creditworthiness and unlocks stablecoin liquidity against your real-world assets — instantly.
             </p>
             <ul className="space-y-4">
@@ -67,8 +67,8 @@ const Audience = () => {
                 "Collateral-backed: real estate, receivables, assets",
                 "Scale your SME loan book without capital constraints"
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-xs text-gray-500 font-light">
-                  <span className="text-[#439EFF] mt-0.5">→</span>
+                <li key={i} className="flex items-start gap-3 text-xs text-white/60 font-light">
+                  <span className="text-white mt-0.5">→</span>
                   {item}
                 </li>
               ))}

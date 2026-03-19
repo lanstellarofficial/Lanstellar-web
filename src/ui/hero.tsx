@@ -79,185 +79,221 @@ const Hero = () => {
         </div>
 
         {/* Right Visual - SVG Protocol Diagram */}
-        <div className="hidden lg:block w-[400px] animate-fade-in-up delay-400">
+        <div className="hidden lg:block w-[480px] animate-fade-in-up delay-400">
           <svg
-            viewBox="0 0 340 420"
+            viewBox="0 0 380 460"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-full"
+            className="w-full drop-shadow-2xl"
           >
+            <defs>
+              <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#5B1E9F" stopOpacity="0.08" />
+                <stop offset="100%" stopColor="#5B1E9F" stopOpacity="0.01" />
+              </linearGradient>
+              <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.08" />
+                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.01" />
+              </linearGradient>
+              <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+
+            {/* LIQUIDITY PROVIDERS */}
             <rect
-              x="80"
-              y="20"
-              width="180"
-              height="64"
+              x="90"
+              y="10"
+              width="200"
+              height="70"
+              rx="4"
+              fill="white"
+              stroke="rgba(0,0,0,0.06)"
+              strokeWidth="1"
+            />
+            <rect
+              x="95"
+              y="15"
+              width="190"
+              height="60"
               rx="2"
-              fill="rgba(0,0,0,0.02)"
-              stroke="rgba(0,0,0,0.1)"
-              strokeWidth="0.8"
+              fill="url(#purpleGradient)"
             />
             <text
-              x="170"
-              y="45"
+              x="190"
+              y="42"
               textAnchor="middle"
               fontFamily="Inter, sans-serif"
-              fontSize="9.5"
-              fill="black"
-              letterSpacing="2"
-              fontWeight="500"
+              fontSize="10"
+              fill="#5B1E9F"
+              letterSpacing="2.5"
+              fontWeight="600"
             >
               LIQUIDITY PROVIDERS
             </text>
             <text
-              x="170"
-              y="64"
+              x="190"
+              y="60"
               textAnchor="middle"
               fontFamily="Inter, sans-serif"
               fontSize="11"
               fill="#6b7280"
+              fontWeight="400"
             >
-              DeFi · Institutions · DAOs
+              Institutional DeFi · Stablecoins
             </text>
 
+            {/* Connection 1 */}
             <line
-              x1="170"
-              y1="84"
-              x2="170"
-              y2="128"
-              stroke="rgba(0,0,0,0.15)"
-              strokeWidth="0.8"
-              strokeDasharray="4 3"
+              x1="190"
+              y1="80"
+              x2="190"
+              y2="130"
+              stroke="rgba(91,30,159,0.2)"
+              strokeWidth="1.5"
+              strokeDasharray="5 4"
             />
-            <polygon
-              points="166,124 174,124 170,132"
-              fill="rgba(0,0,0,0.2)"
-            />
+            <circle cx="190" cy="105" r="3" fill="#5B1E9F" opacity="0.4" />
 
+            {/* LANSTELLAR PROTOCOL - CENTRAL HUB */}
             <rect
-              x="36"
-              y="136"
-              width="268"
-              height="80"
-              rx="2"
-              fill="rgba(91,30,159,0.04)"
+              x="30"
+              y="130"
+              width="320"
+              height="100"
+              rx="6"
+              fill="white"
               stroke="#5B1E9F"
-              strokeWidth="0.9"
+              strokeWidth="1.5"
+              style={{ filter: 'url(#softGlow)' }}
+            />
+            <rect
+              x="40"
+              y="140"
+              width="300"
+              height="80"
+              rx="4"
+              fill="rgba(91,30,159,0.03)"
             />
             <text
-              x="170"
-              y="162"
+              x="190"
+              y="165"
               textAnchor="middle"
               fontFamily="Inter, sans-serif"
               fontSize="9"
               fill="#5B1E9F"
-              letterSpacing="3"
-              fontWeight="600"
+              letterSpacing="4"
+              fontWeight="700"
             >
-              LANSTELLAR PROTOCOL
+              LANSTELLAR CORE
             </text>
             <text
-              x="170"
-              y="183"
+              x="190"
+              y="190"
               textAnchor="middle"
               fontFamily="Inter, sans-serif"
-              fontSize="15"
-              fill="black"
-              fontWeight="300"
+              fontSize="18"
+              fill="#151515"
+              fontWeight="500"
             >
-              AI · Smart Contracts
+              AI-Driven Credit Engine
             </text>
             <text
-              x="170"
-              y="203"
+              x="190"
+              y="208"
               textAnchor="middle"
               fontFamily="Inter, sans-serif"
               fontSize="10"
               fill="#6b7280"
-              letterSpacing="1"
             >
-              Stablecoin Liquidity Pool
+              Real-Time Risk Analysis · Smart Yield
             </text>
 
-            <line
-              x1="170"
-              y1="216"
-              x2="170"
-              y2="260"
-              stroke="rgba(96,165,250,0.4)"
-              strokeWidth="0.8"
-              strokeDasharray="4 3"
+            {/* Connection 2 */}
+            <path
+              d="M190 230 V280"
+              stroke="rgba(59,130,246,0.2)"
+              strokeWidth="1.5"
+              strokeDasharray="5 4"
             />
-            <polygon
-              points="166,256 174,256 170,264"
-              fill="rgba(96,165,250,0.5)"
-            />
+            <circle cx="190" cy="255" r="3" fill="#3b82f6" opacity="0.4" />
 
+            {/* MICROFINANCE BANKS */}
             <rect
-              x="80"
-              y="268"
-              width="180"
-              height="64"
-              rx="2"
-              fill="rgba(59,130,246,0.03)"
+              x="70"
+              y="280"
+              width="240"
+              height="80"
+              rx="4"
+              fill="white"
               stroke="rgba(59,130,246,0.3)"
-              strokeWidth="0.8"
+              strokeWidth="1"
+            />
+            <rect
+              x="75"
+              y="285"
+              width="230"
+              height="70"
+              rx="2"
+              fill="url(#blueGradient)"
             />
             <text
-              x="170"
-              y="293"
+              x="190"
+              y="312"
               textAnchor="middle"
               fontFamily="Inter, sans-serif"
-              fontSize="9.5"
+              fontSize="10"
               fill="#2563eb"
-              letterSpacing="2"
-              fontWeight="500"
+              letterSpacing="2.5"
+              fontWeight="600"
             >
               MICROFINANCE BANKS
             </text>
             <text
-              x="170"
-              y="313"
+              x="190"
+              y="335"
               textAnchor="middle"
               fontFamily="Inter, sans-serif"
-              fontSize="11"
-              fill="black"
+              fontSize="12"
+              fill="#111827"
+              fontWeight="450"
             >
-              Nigeria · Africa · Emerging Markets
+              Strategic Partners in Africa
             </text>
 
+            {/* Connector to SMEs */}
             <line
-              x1="170"
-              y1="332"
-              x2="170"
-              y2="370"
-              stroke="rgba(96,165,250,0.3)"
-              strokeWidth="0.8"
-              strokeDasharray="4 3"
-            />
-            <polygon
-              points="166,366 174,366 170,374"
-              fill="rgba(96,165,250,0.4)"
+              x1="190"
+              y1="360"
+              x2="190"
+              y2="395"
+              stroke="rgba(0,0,0,0.1)"
+              strokeWidth="1"
+              strokeDasharray="3 3"
             />
 
+            {/* SMEs */}
             <rect
               x="100"
-              y="378"
-              width="140"
-              height="36"
-              rx="2"
-              fill="rgba(96,165,250,0.02)"
-              stroke="rgba(96,165,250,0.14)"
-              strokeWidth="0.6"
+              y="395"
+              width="180"
+              height="45"
+              rx="22.5"
+              fill="#f9fafb"
+              stroke="rgba(0,0,0,0.06)"
+              strokeWidth="1"
             />
             <text
-              x="170"
-              y="401"
+              x="190"
+              y="423"
               textAnchor="middle"
               fontFamily="Inter, sans-serif"
-              fontSize="9"
-              fill="#6b7280"
+              fontSize="10"
+              fill="#4b5563"
               letterSpacing="1.5"
+              fontWeight="500"
             >
-              SMEs · LOCAL ECONOMY
+              GROWING SMEs & ECONOMIES
             </text>
           </svg>
         </div>

@@ -45,7 +45,7 @@ const HowItWorks = () => {
             <span className="text-[#5B1E9F] italic">active credit</span> in
             minutes
           </h2>
-          <p className="text-gray-400 text-lg font-light leading-relaxed">
+          <p className="text-white/80 text-lg font-light leading-relaxed">
             Lanstellar's AI protocol automates the entire lending lifecycle —
             from collateral verification to stablecoin disbursement — replacing
             60–90 days of manual process.
@@ -68,13 +68,13 @@ const HowItWorks = () => {
                 >
                   {step.tag}
                 </div>
-                <div className="text-4xl font-helvetica font-light text-gray-800 leading-none">
+                <div className="text-4xl font-helvetica font-light text-white/80 leading-none">
                   {step.id}
                 </div>
                 <h3 className="text-sm font-medium text-white tracking-wide">
                   {step.title}
                 </h3>
-                <p className="text-xs text-gray-500 leading-relaxed font-light">
+                <p className="text-xs text-white/60 leading-relaxed font-light">
                   {step.body}
                 </p>
               </div>

@@ -143,7 +143,7 @@ const Waitlist = () => {
                 Africa's credit revolution
               </span>
             </h2>
-            <p className="text-gray-400 text-lg font-light leading-relaxed">
+            <p className="text-white/80 text-lg font-light leading-relaxed">
               Whether you're a liquidity provider seeking real-world yield or a
               Microfinance Bank ready to break free from expensive, slow capital
               — Lanstellar was built for you.
@@ -158,7 +158,7 @@ const Waitlist = () => {
               <h3 className="text-xl font-medium text-white font-helvetica">
                 Earn yield on verified African credit
               </h3>
-              <p className="text-xs text-gray-500 leading-relaxed font-light">
+              <p className="text-xs text-white/60 leading-relaxed font-light">
                 Deploy USDC or USDT into AI-verified MFB loans and earn
                 treasury-beating returns — with full on-chain transparency and
                 smart contract security.
@@ -181,7 +181,7 @@ const Waitlist = () => {
               <h3 className="text-xl font-medium text-white font-helvetica">
                 Access stablecoin capital in minutes
               </h3>
-              <p className="text-xs text-gray-500 leading-relaxed font-light">
+              <p className="text-xs text-white/60 leading-relaxed font-light">
                 Submit your application, pass AI verification, and receive
                 stablecoin liquidity against your real-world assets — without
                 the 60–90 day TradFi wait.
@@ -205,7 +205,7 @@ const Waitlist = () => {
             className="max-w-xl mx-auto space-y-8 pt-12 border-t border-white/5"
           >
             <div className="text-center space-y-3">
-              <div className="text-[10px] text-gray-500 tracking-[0.2em] uppercase">
+              <div className="text-[10px] text-white/80 tracking-[0.2em] uppercase">
                 Join the Waitlist
               </div>
               <h3 className="text-xl font-medium text-white">
@@ -219,7 +219,7 @@ const Waitlist = () => {
                   placeholder="Name"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="bg-[#1a1a1a] border-[#222] focus:outline-none rounded-none text-white placeholder:text-gray-600 shadow-none p-4 h-14"
+                  className="bg-[#1a1a1a] border-[#222] focus:outline-none rounded-none text-white placeholder:text-white/60 shadow-none p-4 h-14"
                 />
                 <Input
                   type="email"
@@ -227,7 +227,7 @@ const Waitlist = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="bg-[#1a1a1a] border-[#222] focus:outline-none rounded-none text-white placeholder:text-gray-600 shadow-none p-4 h-14"
+                  className="bg-[#1a1a1a] border-[#222] focus:outline-none rounded-none text-white placeholder:text-white/60 shadow-none p-4 h-14"
                 />
               </div>
               <div className="flex flex-row gap-3">
@@ -235,7 +235,7 @@ const Waitlist = () => {
                   value={country}
                   onValueChange={(value) => setCountry(value)}
                 >
-                  <SelectTrigger className="bg-[#1a1a1a] border-[#222] rounded-none text-white h-14 w-1/2">
+                  <SelectTrigger className="bg-[#1a1a1a] border-[#222] rounded-none text-white h-18 w-1/2">
                     <SelectValue placeholder="Country" />
                   </SelectTrigger>
                   <SelectContent className="bg-[#1a1a1a] border-[#222] text-white">
@@ -251,7 +251,7 @@ const Waitlist = () => {
                   placeholder="Telegram Username"
                   value={telegramUsername}
                   onChange={(e) => setTelegramUsername(e.target.value)}
-                  className="bg-[#1a1a1a] border-[#222] focus:outline-none rounded-none text-white placeholder:text-gray-600 shadow-none p-4 h-14 w-1/2"
+                  className="bg-[#1a1a1a] border-[#222] focus:outline-none rounded-none text-white placeholder:text-white/60 shadow-none p-4 h-14 w-1/2"
                 />
               </div>
               <Button
