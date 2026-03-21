@@ -15,7 +15,7 @@ const Team = () => {
           </h2>
           <p className="text-white/80 text-lg font-light leading-relaxed">
             Our founders bring together Web3 infrastructure, AI engineering, and
-            deep African financial markets expertise — the rare combination this
+            deep African financial markets expertise the rare combination this
             problem demands.
           </p>
         </div>
@@ -82,7 +82,7 @@ const Team = () => {
                 </h4>
                 <p className="text-xs text-white/60 leading-relaxed font-light">
                   By drastically lowering the cost of capital for MFBs,
-                  Lanstellar directly enables more SME financing — creating jobs
+                  Lanstellar directly enables more SME financing creating jobs
                   and driving inclusive economic growth across Africa.
                 </p>
               </div>
@@ -97,7 +97,7 @@ const Team = () => {
                 </h4>
                 <p className="text-xs text-white/60 leading-relaxed font-light">
                   We are building resilient financial infrastructure for
-                  emerging markets — combining AI, DeFi, and blockchain to
+                  emerging markets combining AI, DeFi, and blockchain to
                   create a new category of inclusive, scalable fintech.
                 </p>
               </div>

@@ -13,14 +13,13 @@ const Problem = () => (
         </div>
         <h2 className="text-3xl md:text-5xl font-medium font-helvetica leading-tight">
           Credit in Africa is{" "}
-          <span className="text-[#5B1E9F] italic">broken</span> — and businesses
+          <span className="text-[#5B1E9F] italic">broken</span> and businesses
           pay the price
         </h2>
         <div className="space-y-4 text-white/80 font-light leading-relaxed">
           <p>
             In Nigeria, commercial interest rates exceed 27%. Microfinance Banks
-            that serve the real economy — small businesses, traders, farmers —
-            borrow at these punishing rates and pass the pain to their SME
+            that serve the real economy small businesses, traders, farmers borrow at these punishing rates and pass the pain to their SME
             customers.
           </p>
           <p>
@@ -41,7 +40,7 @@ const Problem = () => (
           {
             num: "01",
             title: "Capital access takes 60–90 days",
-            text: "TradFi demands months of manual due diligence before MFBs access growth capital — by which time opportunities are lost.",
+            text: "TradFi demands months of manual due diligence before MFBs access growth capital by which time opportunities are lost.",
             stat: "60-90",
             label: "Days for approval",
           },
@@ -124,7 +123,7 @@ const Platform = () => (
             icon: Landmark,
             num: "02 — Trust",
             title: "On-Chain Transparency",
-            body: "Every loan, every collateral record, every repayment — written to the blockchain. Investors verify their exposure in real time.",
+            body: "Every loan, every collateral record, every repayment written to the blockchain. Investors verify their exposure in real time.",
             tags: ["Multi-Chain", "Smart Contracts", "Real-Time Audit"],
           },
           {

@@ -10,7 +10,7 @@ const steps = [
     id: "02",
     tag: "AI Engine",
     title: "AI Verification",
-    body: "AI agents assess MFB creditworthiness, verify real-world collateral (property, receivables, assets), and generate a risk score — on-chain and transparent.",
+    body: "AI agents assess MFB creditworthiness, verify real-world collateral (property, receivables, assets), and generate a risk score on-chain and transparent.",
     color: "blue"
   },
   {
@@ -24,7 +24,7 @@ const steps = [
     id: "04",
     tag: "Repayment + Yield",
     title: "Automated Repayment",
-    body: "Smart contracts automate repayment schedules. LPs receive principal plus yield. The cycle repeats — compounding returns and real economic impact.",
+    body: "Smart contracts automate repayment schedules. LPs receive principal plus yield. The cycle repeats compounding returns and real economic impact.",
     color: "white"
   },
 ];
@@ -46,8 +46,8 @@ const HowItWorks = () => {
             minutes
           </h2>
           <p className="text-white/80 text-lg font-light leading-relaxed">
-            Lanstellar's AI protocol automates the entire lending lifecycle —
-            from collateral verification to stablecoin disbursement — replacing
+            Lanstellar's AI protocol automates the entire lending lifecycle
+            from collateral verification to stablecoin disbursement replacing
             60–90 days of manual process.
           </p>
         </div>

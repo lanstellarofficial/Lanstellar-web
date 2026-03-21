@@ -10,7 +10,7 @@ const Audience = () => {
             Two sides of one <span className="text-[#5B1E9F] italic">powerful protocol</span>
           </h2>
           <p className="max-w-2xl mx-auto text-gray-400 text-lg font-light leading-relaxed">
-            Lanstellar bridges global DeFi capital with Africa's most creditworthy microfinance institutions — creating value for both sides of the market.
+            Lanstellar bridges global DeFi capital with Africa's most creditworthy microfinance institutions creating value for both sides of the market.
           </p>
         </div>
 
@@ -24,13 +24,13 @@ const Audience = () => {
               Earn Real-World Yield on Verified African Credit
             </h3>
             <p className="text-white/80 text-sm leading-relaxed">
-              Deploy stablecoin capital into AI-verified, collateral-backed loans to regulated Microfinance Banks across Africa — and earn yields that outperform treasury bills.
+              Deploy stablecoin capital into AI-verified, collateral-backed loans to regulated Microfinance Banks across Africa and earn yields that outperform treasury bills.
             </p>
             <ul className="space-y-4">
               {[
                 "Treasury-bill beating yields on USDC / USDT",
                 "AI-verified collateral and on-chain credit scoring",
-                "Full transparency — every loan and repayment on-chain",
+                "Full transparency every loan and repayment on-chain",
                 "Diversified exposure across multiple MFBs",
                 "Smart contract automated repayments"
               ].map((item, i) => (
@@ -57,13 +57,13 @@ const Audience = () => {
               Access Growth Capital in Minutes, Not Months
             </h3>
             <p className="text-white/80 text-sm leading-relaxed">
-              Stop waiting 60–90 days for TradFi approval. Lanstellar's AI engine verifies your creditworthiness and unlocks stablecoin liquidity against your real-world assets — instantly.
+              Stop waiting 60-90 days for TradFi approval. Lanstellar's AI engine verifies your creditworthiness and unlocks stablecoin liquidity against your real-world assets instantly.
             </p>
             <ul className="space-y-4">
               {[
                 "Stablecoin disbursement in minutes, not months",
                 "Rates far below current traditional lending costs",
-                "AI due diligence — replace months of paperwork",
+                "AI due diligence replace months of paperwork",
                 "Collateral-backed: real estate, receivables, assets",
                 "Scale your SME loan book without capital constraints"
               ].map((item, i) => (

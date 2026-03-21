@@ -30,13 +30,13 @@ const Hero = () => {
           <h1 className="text-4xl md:text-5xl lg:text-[68px] leading-[1.1] font-medium font-helvetica animate-fade-in-up delay-100">
             Connecting{" "}
             <span className="text-[#5B1E9F] italic">Global Liquidity</span> to
-            Africa's Credit Gap — at the Speed of{" "}
+            Africa's Credit Gap at the Speed of{" "}
             <span className="text-[#5B1E9F] italic">DeFi</span>
           </h1>
 
           <p className="max-w-xl text-gray-600 text-lg md:text-xl leading-relaxed font-inter animate-fade-in-up delay-200">
             Lanstellar is an AI-powered stablecoin lending protocol that gives
-            Microfinance Banks instant access to growth capital — so they can
+            Microfinance Banks instant access to growth capital so they can
             finance more SMEs, create more jobs, and grow local economies.
           </p>
 

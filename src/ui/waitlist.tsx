@@ -146,7 +146,7 @@ const Waitlist = () => {
             <p className="text-white/80 text-lg font-light leading-relaxed">
               Whether you're a liquidity provider seeking real-world yield or a
               Microfinance Bank ready to break free from expensive, slow capital
-              — Lanstellar was built for you.
+              Lanstellar was built for you.
             </p>
           </div>
 
@@ -160,7 +160,7 @@ const Waitlist = () => {
               </h3>
               <p className="text-xs text-white/60 leading-relaxed font-light">
                 Deploy USDC or USDT into AI-verified MFB loans and earn
-                treasury-beating returns — with full on-chain transparency and
+                treasury-beating returns with full on-chain transparency and
                 smart contract security.
               </p>
               <Button
@@ -183,8 +183,8 @@ const Waitlist = () => {
               </h3>
               <p className="text-xs text-white/60 leading-relaxed font-light">
                 Submit your application, pass AI verification, and receive
-                stablecoin liquidity against your real-world assets — without
-                the 60–90 day TradFi wait.
+                stablecoin liquidity against your real-world assets without the
+                60–90 day TradFi wait.
               </p>
               <Button
                 variant="outline"
